@@ -1,10 +1,10 @@
-# [Name of the Project] : [Team Number]
+# [Hobby Tracker] : [Team 28]
 # Members
-Project Manager: [Name] ([GitHub Name])\
-Communications Lead: [Name] ([GitHub Name])\
-Git Master: [Name] ([GitHub Name])\
-Design Lead: [Name] ([GitHub Name])\
-Quality Assurance Tester: [Name] ([GitHub Name])
+Project Manager: [Nora Pray] ([ny0o0om])\
+Communications Lead: [Khalil El-abbassi] ([KhalilE792])\
+Git Master: [Joshua Harris] ([Joshua4978])\
+Design Lead: [Helena Schuler] ([hschuler13])\
+Quality Assurance Tester: [Lynn Casper] ([Tcasperv])
 
 # About Our Software
 
