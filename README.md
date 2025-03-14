@@ -8,7 +8,7 @@ Quality Assurance Tester: [Lynn Casper] ([Tcasperv])
 
 # About Our Software
 
-Describe a little about what the project is about here.
+Hobby Tracker is a web-app to help encourage users to pursue and develop new hobbies while also helping them be consistent with their current hobbies. It boasts  
 ## Platforms Tested on
 - MacOS
 - Android
@@ -16,8 +16,8 @@ Describe a little about what the project is about here.
 - Linux
 - Windows
 # Important Links
-Kanban Board: [link]\
-Designs: [link]\
+Kanban Board: discord bot [https://github.com/j4asper/KanbanCord] \
+Designs: [https://www.figma.com/files/project/336795602] \
 Styles Guide(s): [link]
 
 # How to Run Dev and Test Environment
