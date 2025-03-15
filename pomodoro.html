@@ -14,21 +14,26 @@
 <body>
     <h1 style="color:green">
           Pomodoro Timer
-      </h1>
+    </h1>
     <div class="main">
         <div class="timer-circle" 
              id="timer">15:00
           </div>
+        <div class="timer-buttons">
+            <button onclick="startNewTimer(25)">
+                Pomodoro
+            </button>
+        </div>
         <div class="control-buttons">
             <button onclick="togglePauseResume()">
                   Pause
-              </button>
+            </button>
             <button onclick="restartTimer()">
                   Restart
-              </button>
+            </button>
             <button onclick="chooseTime()">
                   Choose Time
-              </button>
+            </button>
         </div>
     </div>
     <script src="pomodoroScript.js"></script>

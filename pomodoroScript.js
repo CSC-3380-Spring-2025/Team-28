@@ -1,6 +1,6 @@
 // script.js
 let timer;
-let minutes = 15;
+let minutes = 25;
 let seconds = 0;
 let isPaused = false;
 let enteredTime = null;
@@ -30,6 +30,22 @@ function updateTimer() {
 
 function formatTime(minutes, seconds) {
     return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+}
+
+function startNewTimer(mins){
+    enteredTime = mins;
+    minutes = enteredTime;
+    seconds = 0;
+    isPaused = false;
+    const timerElement =
+        document.getElementById('timer');
+    timerElement.textContent =
+        formatTime(minutes, seconds);
+    clearInterval(timer);
+    const pauseResumeButton =
+        document.querySelector('.control-buttons button');
+    pauseResumeButton.textContent = 'Pause';
+    startTimer();
 }
 
 function togglePauseResume() {

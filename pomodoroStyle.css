@@ -18,7 +18,7 @@ body {
     padding: 10px 20px;
     transition: transform 0.2s;
     width: 500px;
-    height: 400px;
+    height: 600px;
     text-align: center;
 }
 
@@ -33,6 +33,21 @@ body {
     font-size: 25px;
     color: crimson;
     border: 8px solid #3498db;
+}
+
+.timer-buttons {
+    margin-top: 75px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.timer-buttons button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .control-buttons {
