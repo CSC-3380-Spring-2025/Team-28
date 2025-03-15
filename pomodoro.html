@@ -17,7 +17,7 @@
     </h1>
     <div class="main">
         <div class="timer-circle" 
-             id="timer">15:00
+             id="timer">Pick a timer to start
           </div>
         <div class="timer-buttons">
             <button onclick="startNewTimer(25)">
@@ -31,14 +31,17 @@
             </button>
         </div>
         <div class="control-buttons">
-            <button onclick="togglePauseResume()">
-                  Pause
+            <button onclick="startTimer()">
+                Start
+            </button>
+            <button id="pauseButton" onclick="togglePauseResume()">
+                Pause
             </button>
             <button onclick="restartTimer()">
-                  Restart
+                Restart
             </button>
             <button onclick="chooseTime()">
-                  Choose Time
+                Choose Time
             </button>
         </div>
     </div>

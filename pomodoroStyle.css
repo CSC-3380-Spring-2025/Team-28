@@ -18,7 +18,7 @@ body {
     padding: 10px 20px;
     transition: transform 0.2s;
     width: 500px;
-    height: 600px;
+    height: 400px;
     text-align: center;
 }
 
@@ -32,17 +32,17 @@ body {
     justify-content: center;
     font-size: 25px;
     color: crimson;
-    border: 8px solid #3498db;
+    border: 8px solid green;
 }
 
 .timer-buttons {
-    margin-top: 75px;
+    margin-top: 40px;
     display: flex;
     justify-content: space-evenly;
 }
 
 .timer-buttons button {
-    background-color: #3498db;
+    background-color: green;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -50,14 +50,19 @@ body {
     cursor: pointer;
 }
 
+.timer-buttons button:hover {
+    background-color: #094226;
+    transition: background-color 0.3s;
+}
+
 .control-buttons {
-    margin-top: 75px;
+    margin-top: 40px;
     display: flex;
     justify-content: space-evenly;
 }
 
 .control-buttons button {
-    background-color: #3498db;
+    background-color: green;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -66,6 +71,6 @@ body {
 }
 
 .control-buttons button:hover {
-    background-color: #266094;
+    background-color: #094226;
     transition: background-color 0.3s;
 }
