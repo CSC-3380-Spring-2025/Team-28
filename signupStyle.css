@@ -1,49 +1,48 @@
 /* style.css*/
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: sans-serif;
-    line-height: 1.5;
-    min-height: 100vh;
-    background: #f3f3f3;
-    flex-direction: column;
-    margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+  background: #f3f3f3;
+  flex-direction: column;
+  margin: 0;
 }
 
 .main {
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    padding: 10px 20px;
-    transition: transform 0.2s;
-    width: 500px;
-    height: 400px;
-    text-align: center;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  transition: transform 0.2s;
+  width: 500px;
+  height: 400px;
+  text-align: center;
 }
 
-.main h1{ 
-	font-size: 40px; 
-	text-align:center; 
-	 font-family: sans-serif; 
-	
-} 
-input{ 
-	 font-family: sans-serif; 
-	width: 100%; 
-	font-size: 20px; 
-	padding: 12px 20px; 
-	margin: 8px 0; 
-	border: none; 
-	border-bottom: 2px solid #767474; 
-} 
-input[type=submit] { 
-	font-family: sans-serif; 
-	width: 100%; 
-	background-color: #767474; 
-	border: none; 
-	color: white; 
-	padding: 16px 32px; 
-	margin: 4px 2px; 
-	border-radius: 10px; 
+input {
+  font-family: sans-serif;
+  width: 100%;
+  font-size: 20px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: none;
+  border-bottom: 2px solid #767474;
+}
+input[type="submit"] {
+  font-family: sans-serif;
+  width: 100%;
+  background-color: #3498db;
+  border: none;
+  color: #fff;
+  padding: 16px 32px;
+  margin: 4px 2px;
+  border-radius: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #266094;
+    transition: background-color 0.3s;
 }
