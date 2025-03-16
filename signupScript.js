@@ -2,6 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 
 const mongoose = require("mongoose");
+const { match } = require("assert");
 mongoose.connect(
   "mongodb+srv://userLogin:y7NaEfDttsDu6hgJ@cluster0.w7pqm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
   { dbName: "userDB" }
@@ -26,14 +27,14 @@ app.post("/sign_up", function (req, res) {
   var name = req.body.name;
   var email = req.body.email;
   var pass = req.body.password;
-  var phone = req.body.phone;
+
 
   var data = {
     name: name,
     email: email,
     password: pass,
-    phone: phone,
   };
+
   db.collection("userLogin").insertOne(data, function (err, collection) {
     if (err) throw err;
     console.log("Record inserted Successfully");
