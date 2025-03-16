@@ -1,0 +1,25 @@
+{
+  "name": "team-28",
+  "version": "1.0.0",
+  "description": "Project Manager: [Nora Pray] ([ny0o0om])\\\r Communications Lead: [Khalil El-abbassi] ([KhalilE792])\\\r Git Master: [Joshua Harris] ([Joshua4978])\\\r Design Lead: [Helena Schuler] ([hschuler13])\\\r Quality Assurance Tester: [Lynn Casper] ([Tcasperv])",
+  "main": "pomodoroScript.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CSC-3380-Spring-2025/Team-28.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CSC-3380-Spring-2025/Team-28/issues"
+  },
+  "homepage": "https://github.com/CSC-3380-Spring-2025/Team-28#readme",
+  "dependencies": {
+    "@fullcalendar/core": "^6.1.15",
+    "@fullcalendar/daygrid": "^6.1.15",
+    "typescript": "^5.8.2"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "ES6",                                   /* Specify ECMAScript target version: 'ES5', 'ES6', 'ESNext'. */
+    "module": "ES6",                                   /* Specify module code generation: 'CommonJS', 'ES6', 'ESNext'. */
+    "outDir": "dist",                                  /* Redirect output structure to the 'dist' folder. */
+    "rootDir": "src",                                  /* Specify the root folder for TypeScript files. */
+    
+    /* Strict Type-Checking Options */
+    "strict": true,                                    /* Enable all strict type-checking options. */
+    "noImplicitAny": true,                             /* Raise error on expressions and declarations with an implied 'any' type. */
+    "strictNullChecks": true,                          /* Enable strict null checks. */
+    "strictFunctionTypes": true,                       /* Enable strict checking of function types. */
+    "strictBindCallApply": true,                       /* Enable strict 'bind', 'call', and 'apply' methods on functions. */
+    "strictPropertyInitialization": true,              /* Ensure properties are initialized in class constructors. */
+    
+    /* Additional Checks */
+    "noUnusedLocals": true,                            /* Report errors on unused local variables. */
+    "noUnusedParameters": true,                        /* Report errors on unused function parameters. */
+    "noImplicitReturns": true,                         /* Report an error when not all code paths in a function return a value. */
+    "noFallthroughCasesInSwitch": true,               /* Report errors for fallthrough cases in switch statements. */
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",                        /* Use Node.js module resolution strategy. */
+    "baseUrl": "./",                                   /* Base directory for resolving non-relative module names. */
+    "paths": {
+      "@fullcalendar/*": ["node_modules/@fullcalendar/*"]
+    },                                                 /* Resolve FullCalendar imports correctly. */
+
+    /* Experimental Options */
+    "allowSyntheticDefaultImports": true,             /* Allow default imports from modules with no default export. */
+    "esModuleInterop": true,                           /* Enable interoperability between ES modules and CommonJS. */
+    
+    /* Output Formatting */
+    "pretty": true                                    /* Enable color and formatting in TypeScript error messages. */
+  },
+  "include": ["src"],                                 /* Include only TypeScript files inside 'src'. */
+  "exclude": ["node_modules", "dist"]                 /* Exclude unnecessary folders from compilation. */
+}
