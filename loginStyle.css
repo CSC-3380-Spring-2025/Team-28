@@ -21,3 +21,29 @@ body {
     height: 400px;
     text-align: center;
 }
+
+.main h1{ 
+	font-size: 40px; 
+	text-align:center; 
+	 font-family: sans-serif; 
+	
+} 
+input{ 
+	 font-family: sans-serif; 
+	width: 100%; 
+	font-size: 20px; 
+	padding: 12px 20px; 
+	margin: 8px 0; 
+	border: none; 
+	border-bottom: 2px solid #767474; 
+} 
+input[type=submit] { 
+	font-family: sans-serif; 
+	width: 100%; 
+	background-color: #767474; 
+	border: none; 
+	color: white; 
+	padding: 16px 32px; 
+	margin: 4px 2px; 
+	border-radius: 10px; 
+}
