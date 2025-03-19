@@ -1,15 +1,6 @@
 "use client";
 
-import { AppSidebar } from "@/components/app-sidebar";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import {
   Carousel,
   CarouselContent,
@@ -19,11 +10,6 @@ import {
 } from "@/components/ui/carousel";
 
 import { Separator } from "@/components/ui/separator";
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Heart, icons } from "lucide-react";
@@ -40,7 +26,6 @@ export default function Dashboard() {
           <h1 className="font-bold text-2xl">Dashboard</h1>
         </div>
         <div className="grid grid-cols-3 gap-4 relative w-full max-w-full items-start">
-          {/* Carousel Section */}
           <div className="col-span-2 ">
             <Carousel className="w-full h-full">
               <CarouselContent className="h-full">
@@ -58,8 +43,6 @@ export default function Dashboard() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-
-              {/* 🔥 Buttons positioned inside the carousel */}
               <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/80 p-2 rounded-full shadow-md" />
               <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/80 p-2 rounded-full shadow-md" />
             </Carousel>
@@ -82,90 +65,82 @@ export default function Dashboard() {
             </Card>
           </div>
         </div>
-
         <div className="grid grid-cols-3 gap-4 pt-[2.5vh]">
           <div>
             <div className="h-[45vh] border-none justify-items-start">
-            <h3 className="font-bold text-md pb-[1vh]">Tools</h3>
-                <div className="grid grid-cols-1">
-                  <div className="pb-[1vh]">
-                  <Button
-                  className="rounded-full w-3/5 justify-stretch">
+              <h3 className="font-bold text-md pb-[1vh]">Tools</h3>
+              <div className="grid grid-cols-1">
+                <div className="pb-[1vh]">
+                  <Button className="rounded-full w-3/5 justify-stretch">
                     <Heart></Heart>
                     Hobby Editor
                   </Button>
-                  </div>
-                  <div className="pb-[1vh]">
-                  <Button
-                  className="rounded-full w-3/5 justify-stretch">
+                </div>
+                <div className="pb-[1vh]">
+                  <Button className="rounded-full w-3/5 justify-stretch">
                     <Heart></Heart>
                     Mascot
                   </Button>
-                  </div>
-                  <div className="pb-[1vh]">
-                  <Button
-                  className="rounded-full w-3/5 justify-stretch">
+                </div>
+                <div className="pb-[1vh]">
+                  <Button className="rounded-full w-3/5 justify-stretch">
                     <Heart></Heart>
                     Calendar
                   </Button>
-                  </div>
-                  <div className="pb-[1vh]">
-                  <Button
-                  className="rounded-full w-3/5 justify-stretch">
+                </div>
+                <div className="pb-[1vh]">
+                  <Button className="rounded-full w-3/5 justify-stretch">
                     <Heart></Heart>
                     Timer
                   </Button>
-                  </div>
-                  <div className="pb-[1vh]">
-                  <Button
-                  className="rounded-full w-3/5 justify-stretch">
+                </div>
+                <div className="pb-[1vh]">
+                  <Button className="rounded-full w-3/5 justify-stretch">
                     <Heart></Heart>
                     Reminders
                   </Button>
-                  </div>
-                  <div className="pb-[1vh]">
-                  <Button
-                  className="rounded-full w-3/5 justify-stretch">
+                </div>
+                <div className="pb-[1vh]">
+                  <Button className="rounded-full w-3/5 justify-stretch">
                     <Heart></Heart>
                     Settings
                   </Button>
-                  </div>
                 </div>
+              </div>
             </div>
-            
           </div>
           <div>
             <Link href="/mascot">
               <Card className="h-[45vh]">
                 <CardContent>
                   <div className="h-[45vh] relative">
-                  <Image
-                    src="/mascot.png"
-                    alt="mascot"
-                    layout="fill"
-                    objectFit="contain"
-                  ></Image>
+                    <Image
+                      src="/mascot.png"
+                      alt="mascot"
+                      layout="fill"
+                      objectFit="contain"
+                    ></Image>
                   </div>
                 </CardContent>
               </Card>
             </Link>
           </div>
-            <div className="w-full col-span-1">
-              <div className="w-full h-[45vh]flex items-center justify-center">
-                <Link href="/calendar">
-                  <Calendar
-                    className="w-full h-[45vh] max-h-full border-black border-[1.5px] rounded-xl"
-                    classNames={{
-                      months:
-                        "flex w-full flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0 flex-1",
-                      month: "space-y-4 w-full flex flex-col",
-                      table: "w-full border-collapse space-y-1",
-                      head_row: "",
-                      row: "w-full mt-2",
-                    }}
-                  />
-                </Link>
-              </div>
+          <div className="w-full col-span-1">
+            <div className="w-full h-[45vh]flex items-center justify-center">
+              <Link href="/calendar">
+                <Calendar
+                  className="w-full h-[45vh] max-h-full border-black border-[1.5px] rounded-xl"
+                  classNames={{
+                    months:
+                      "flex w-full flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0 flex-1",
+                    month: "space-y-4 w-full flex flex-col",
+                    table: "w-full border-collapse space-y-1",
+                    head_row: "",
+                    row: "w-full mt-2",
+                  }}
+                />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
