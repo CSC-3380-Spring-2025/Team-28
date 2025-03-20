@@ -30,16 +30,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html>
-      <body>
-      <SidebarProvider>
-        <AppSidebar />
-        <SidebarTrigger className="-ml-1 rounded-none" />
-          <SidebarInset>
-            {children}
-          </SidebarInset>
-      </SidebarProvider>
-      </body>
-    </html>
+    <>
+    {children}
+    </>
+    
   );
 }
