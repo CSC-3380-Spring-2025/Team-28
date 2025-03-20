@@ -11,8 +11,7 @@ import { Heart, icons, Pencil } from "lucide-react";
 import React from "react";
 import Link from "next/link";
 
-export default function Dashboard() {
-  const [date, setDate] = React.useState<Date | undefined>(new Date());
+export default function Settings() {
   return (
     <>
       <div className="px-10">
