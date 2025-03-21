@@ -3,7 +3,7 @@ let timer;
 let minutes = 25;
 let seconds = 0;
 let isPaused = true;
-let enteredTime = null;
+let enteredTime = 25;
 
 function startTimer() {
     if(enteredTime != null && !(minutes === 0 && seconds === 0)){
@@ -46,7 +46,7 @@ function startNewTimer(mins){
     clearInterval(timer);
     const pauseResumeButton =
         document.getElementById("pauseButton");
-    pauseResumeButton.textContent = 'Pause';
+    pauseResumeButton.textContent = 'Resume';
 }
 
 function togglePauseResume() {
