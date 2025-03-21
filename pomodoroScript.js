@@ -74,7 +74,7 @@ function restartTimer() {
         formatTime(minutes, seconds);
     const pauseResumeButton =
         document.getElementById("pauseButton");
-    pauseResumeButton.textContent = 'Pause';
+    pauseResumeButton.textContent = 'Resume';
 }
 
 function chooseTime() {
@@ -91,7 +91,7 @@ function chooseTime() {
         clearInterval(timer);
         const pauseResumeButton =
             document.getElementById("pauseButton");
-        pauseResumeButton.textContent = 'Pause';
+        pauseResumeButton.textContent = 'Resume';
     } else {
         alert('Invalid input. Please enter a valid whole number greater than 0 and no greater than 60.');
     }
