@@ -27,27 +27,39 @@
             <input
               class="box"
               type="text"
-              name="name"
-              id="name"
+              name="userName"
+              id="userName"
               placeholder="Username"
               required
             /><br />
 
             <input
               class="box"
-              type="email"
-              name="email"
-              id="email"
+              type="userEmail"
+              name="userEmail"
+              id="userEmail"
               placeholder="E-Mail "
               required
             /><br />
 
             <input
               class="box"
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password "
+              type="userPass"
+              name="userPass"
+              id="userPass"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              placeholder="Password"
+              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+              required
+            /><br />
+            <input
+              class="box"
+              type="userConfirm"
+              name="userConfirm"
+              id="userConfirm"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              placeholder="Confirm Password"
+              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
               required
             /><br />
 
