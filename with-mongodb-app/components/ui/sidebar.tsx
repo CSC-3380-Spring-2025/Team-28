@@ -279,7 +279,7 @@ const SidebarTrigger = React.forwardRef<
     <Button
       ref={ref}
       data-sidebar="trigger"
-      variant="ghost"
+      variant="default"
       size="icon"
       className={cn("w-sm h-screen flex items-start p-5 justify-center bg-sidebar", className)}
       onClick={(event) => {
