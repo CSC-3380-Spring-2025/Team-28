@@ -4,12 +4,17 @@ let minutes = 25;
 let seconds = 0;
 let isPaused = true;
 let enteredTime = 25;
+let hasRun = false;
 
 function startTimer() {
+
+    if (!hasRun){
     if(enteredTime != null && !(minutes === 0 && seconds === 0)){
         isPaused = false;
         timer = setInterval(updateTimer, 1000);
+        hasRun = true;
     }
+}
 }
 
 function updateTimer() {
@@ -47,6 +52,7 @@ function startNewTimer(mins){
     const pauseResumeButton =
         document.getElementById("pauseButton");
     pauseResumeButton.textContent = 'Resume';
+    hasRun = false;
 }
 
 function togglePauseResume() {
@@ -58,6 +64,7 @@ function togglePauseResume() {
         clearInterval(timer);
         pauseResumeButton.textContent = 'Resume';
     } else {
+        hasRun = false;
         startTimer();
         pauseResumeButton.textContent = 'Pause';
     }
@@ -75,6 +82,7 @@ function restartTimer() {
     const pauseResumeButton =
         document.getElementById("pauseButton");
     pauseResumeButton.textContent = 'Resume';
+    hasRun = false;
 }
 
 function chooseTime() {
@@ -92,6 +100,7 @@ function chooseTime() {
         const pauseResumeButton =
             document.getElementById("pauseButton");
         pauseResumeButton.textContent = 'Resume';
+        hasRun = false;
     } else {
         alert('Invalid input. Please enter a valid whole number greater than 0 and no greater than 60.');
     }
