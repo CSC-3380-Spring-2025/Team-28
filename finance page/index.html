@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finances</title>
+</head>
+<body>
+    
+    <form id="financeForm" action="">
+    
+        <label>Item</label>
+        <input id = "item" placeholder="Pencils" required type="text">
+        <label>Amount</label>
+        <input id = "amount" placeholder="10" required type="number" min="1" max="99">
+        <label>Price</label>
+        <input id = "price" placeholder="4.99" required type="number" min="0.01" step="0.01">
+        <button id="Submit" type="submit">Submit</button>
+    </form>
+
+    <table>
+       <tr>
+        <th>Item </th>
+        <th>Amount </th>
+        <th>Price </th>
+       </tr> 
+    
+       <tbody>
+
+
+       </tbody>
+
+
+
+       <tfoot>
+       <tr>
+
+        <td colspan="2"></td>
+        <td> Total: $<span id="totalPrice">0.00</span></td>
+
+       </tr>
+       </tfoot>
+
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
