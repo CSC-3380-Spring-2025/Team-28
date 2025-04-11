@@ -14,12 +14,14 @@
     "@radix-ui/react-slot": "^1.1.2",
     "@radix-ui/react-tooltip": "^1.1.8",
     "axios": "^1.8.4",
+    "bcrypt": "^5.1.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.5.2",
     "lucide-react": "^0.479.0",
     "mongodb": "^6.5.0",
+    "mongoose": "^8.13.2",
     "next": "^15.1.7",
     "react": "^18",
     "react-day-picker": "8.10.1",
@@ -28,6 +30,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
