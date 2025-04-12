@@ -10,7 +10,6 @@ export async function POST(request: { json: () => PromiseLike<{ hobby: String; t
         if(!pathExistance){
             console.log("path does not exist")
             return NextResponse.json({error: "path does not exist", status: 404})
-            
         }
 
         console.log("path does not exist")
