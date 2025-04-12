@@ -23,6 +23,7 @@
     "mongodb": "^6.5.0",
     "mongoose": "^8.13.2",
     "next": "^15.1.7",
+    "nodemailer": "^6.10.0",
     "react": "^18",
     "react-day-picker": "8.10.1",
     "react-dom": "^18",
@@ -32,6 +33,7 @@
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/node": "^20",
+    "@types/nodemailer": "^6.4.17",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
