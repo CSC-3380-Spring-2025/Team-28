@@ -5,12 +5,17 @@ let minutes = 25;
 let seconds = 0;
 let isPaused = true;
 let enteredTime: number | null = null;
+let hasRun = false;
 
 function startTimer() {
+
+    if(!hasRun){
     if(enteredTime != null){
         isPaused = false;
         timer = setInterval(updateTimer, 1000);
+        hasRun = true;
     }
+}
 }
 
 function updateTimer() {
@@ -48,6 +53,7 @@ function startNewTimer(mins: number){
     const pauseResumeButton =
         document.getElementById("pauseButton");
     pauseResumeButton!.textContent = 'Pause';
+    hasRun = false;
 }
 
 function togglePauseResume() {
@@ -59,6 +65,7 @@ function togglePauseResume() {
         clearInterval(timer!);
         pauseResumeButton!.textContent = 'Resume';
     } else {
+        hasRun = false;
         startTimer();
         pauseResumeButton!.textContent = 'Pause';
     }
@@ -76,11 +83,12 @@ function restartTimer() {
     const pauseResumeButton =
         document.getElementById("pauseButton");
     pauseResumeButton!.textContent = 'Pause';
+    hasRun = false;
 }
 
 function chooseTime() {
     const newTime = prompt('Enter new time in minutes:');
-    if (!isNaN(newTime) && newTime > 0) {
+    if (!isNaN(newTime) && newTime > 0 && newTime <= 60 && Number.isInteger(newTime)) {
         enteredTime = parseInt(newTime);
         minutes = enteredTime;
         seconds = 0;
@@ -93,9 +101,10 @@ function chooseTime() {
         const pauseResumeButton =
             document.getElementById("pauseButton");
         pauseResumeButton!.textContent = 'Pause';
+        hasRun = false;
     } else {
         alert('Invalid input. Please enter'+
-              ' a valid number greater than 0.');
+              ' a valid number greater than 0 and no greater than 60.');
     }
 }
 
