@@ -29,41 +29,43 @@ export default function Register() {
         minHeight: "100vh",
       }}
     >
-      <h1 className="font-bold text-6xl p-10">Create Account</h1>
+      <h1 className="font-bold text-7xl mb-9">Create Account</h1>
       <form onSubmit={handleSubmit}>
-        <label className="h-10 w-15 p-2">Name</label>
+        <h2 className="mt-2 mb-1">Name</h2>
         <div>
           <input
             className="bg-[#D9D9D9] rounded-md text-black h-10 p-2"
             type="text"
-            placeholder="enter name"
+            placeholder="Enter Name"
             onChange={(e) => setName(e.target.value)}
           ></input>
         </div>
-        <label className="h-10 w-15 p-2">Email</label>
+        <h2 className="mt-2 mb-1">Email</h2>
         <div>
           <input
             className="bg-[#D9D9D9] rounded-md text-black h-10 w-15 p-2"
             type="email"
-            placeholder="enter email"
+            placeholder="Enter Email"
             onChange={(e) => setEmail(e.target.value)}
           ></input>
         </div>
-        <label className="h-10 w-15 p-2">Password</label>
+        <h2 className="mt-2 mb-1">Password</h2>
         <div>
           <input
             className="bg-[#D9D9D9] rounded-md text-black h-10 w-15 p-2"
             type="password"
-            placeholder="enter password"
+            placeholder="Enter Password"
             onChange={(e) => setPassword(e.target.value)}
           ></input>
         </div>
-        <button
-          type="submit"
-          className="bg-black rounded-md text-white text-xl h-10 w-20 justify-center"
-        >
-          Sign Up
-        </button>
+        <div className="flex items-center justify-center mt-2 mb-1">
+          <button
+            type="submit"
+            className="bg-black rounded-md text-white text-xl h-10 w-20"
+          >
+            Sign Up
+          </button>
+        </div>
       </form>
     </div>
   );
