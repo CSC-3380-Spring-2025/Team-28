@@ -1,21 +1,16 @@
 "use client";
 import axios from "axios";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useState } from "react";
-
-const MyComponent: React.FC = () => {
-  const style = {
-    color: "red",
-    fontSize: "20px",
-  };
-
-  return <div style={style}>Hello, World!</div>;
-};
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+
+  const redirectRegister = () => {
+    router.push("/register");
+  };
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -38,8 +33,8 @@ export default function Login() {
     >
       <h1 className="font-bold text-6xl p-10">Hobby Helper</h1>
       <form onSubmit={handleSubmit}>
-        <label className="h-10 w-15 p-2">Email</label>
-        <div>
+        <h2 className="mt-2 mb-1">Email</h2>
+        <div className="">
           <input
             className="bg-[#D9D9D9] rounded-md text-black h-10 p-2"
             type="email"
@@ -47,7 +42,7 @@ export default function Login() {
             onChange={(e) => setEmail(e.target.value)}
           ></input>
         </div>
-        <label className="h-10 w-15 p-2">Password</label>
+        <h2 className="mt-2 mb-1">Password</h2>
         <div>
           <input
             className="bg-[#D9D9D9] rounded-md text-black h-10 w-15 p-2"
@@ -64,6 +59,12 @@ export default function Login() {
           </button>
         </div>
       </form>
+      <button
+        onClick={redirectRegister}
+        className="bg-black rounded-md text-white text-md h-10 w-20 justify-center my-3"
+      >
+        Register
+      </button>
     </div>
   );
 }
