@@ -1,18 +1,18 @@
-'use client'
+"use client";
 
 import axios from "axios";
 import { useState } from "react";
 
 export default function Email() {
   const [recieveEmails, setRecieveEmails] = useState("");
-  const [day, setDay] = useState("")
+  const [day, setDay] = useState("");
   const [hour, setHour] = useState("");
   const [min, setMin] = useState("");
   const [message, setMessage] = useState("");
 
   const recieved = [
-    { label: "yes", value: "yes" },
-    { label: "no", value: "no" },
+    { label: "Yes", value: "yes" },
+    { label: "No", value: "no" },
   ];
 
   const days = [
@@ -61,42 +61,107 @@ export default function Email() {
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    //change back eventually
-    const response = await axios.post("/api/email", {recieveEmails, day, hour, min, message});
+    const response = await axios.post("/api/email", {
+      recieveEmails,
+      day,
+      hour,
+      min,
+      message,
+    });
     console.log(response);
   };
   return (
     <>
-      <div>
+      <div className="px-10">
+        <div className="pt-[1.5vh] pb-[1.5vh]">
+          <h1 className="font-bold text-black text-2xl">Email Reminders</h1>
+        </div>
         <form onSubmit={handleSubmit}>
           <div>
-            <label>Recieve Weekly Email Reminders?</label>
-            <select onChange={(e) => setRecieveEmails(e.target.value)}>
-              {recieved.map((recieve) => (
-                <option value={recieve.value}>{recieve.label}</option>
-              ))}
-            </select>
-            <label>Day to remind</label>
-            <select onChange={(e) => setDay(e.target.value)}>
-              {days.map((day) => (
-                <option value={day.value}>{day.label}</option>
-              ))}
-            </select>
-            <label>Time to remind</label>
-            <select onChange={(e) => setHour(e.target.value)}>
-              {hours.map((hour) => (
-                <option value={hour.value}>{hour.label}</option>
-              ))}
-            </select>
-            <select onChange={(e) => setMin(e.target.value)}>
-              {mins.map((min) => (
-                <option value={min.value}>{min.label}</option>
-              ))}
-            </select>
-            <label>message</label>
-            <textarea onChange={(e) => setMessage(e.target.value)}></textarea>
+            <div className="pt-[1.5vh] pb-[1.5vh]">
+              <div>
+                <label className="font-normal text-black text-lg">
+                  Recieve Weekly Email Reminders?:
+                </label>
+              </div>
+              <div>
+                <select
+                  className="border-black border-2 border-solid rounded-sm p-[0.5vh]"
+                  onChange={(e) => setRecieveEmails(e.target.value)}
+                >
+                  {recieved.map((recieve) => (
+                    <option value={recieve.value}>{recieve.label}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div className="pb-[1.5vh]">
+              <div>
+                <label className="font-normal text-black text-lg">
+                  Day to Remind:
+                </label>
+              </div>
+              <div>
+                <select
+                  className="border-black border-2 border-solid rounded-sm p-[0.5vh]"
+                  onChange={(e) => setDay(e.target.value)}
+                >
+                  {days.map((day) => (
+                    <option value={day.value}>{day.label}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div className="pb-[1.5vh]">
+              <div>
+                <label className="font-normal text-black text-lg">
+                  Time to Remind:
+                </label>
+              </div>
+              <div>
+                <select
+                  className="border-black border-2 border-solid rounded-sm p-[0.5vh] mr-[1.5vh]"
+                  onChange={(e) => setHour(e.target.value)}
+                >
+                  {hours.map((hour) => (
+                    <option value={hour.value}>{hour.label}</option>
+                  ))}
+                </select>
+                <select
+                  className="border-black border-2 border-solid rounded-sm p-[0.5vh]"
+                  onChange={(e) => setMin(e.target.value)}
+                >
+                  {mins.map((min) => (
+                    <option value={min.value}>{min.label}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div className="pb-[1.5vh]">
+              <div>
+                <label className="font-normal text-black text-lg">
+                  Message:
+                </label>
+              </div>
+              <div>
+                <textarea
+                  className="border-black border-2 border-solid rounded-sm pt-[1.5vh] pb-[1.5vh] w-1/2 bg-gray-200"
+                  onChange={(e) => setMessage(e.target.value)}
+                ></textarea>
+              </div>
+            </div>
           </div>
-          <button type="submit">submit</button>
+          <div className="pt-[1.5vh]">
+            <button
+              type="submit"
+              className="p-[1.5vh] bg-black text-white rounded-md font-bold mr-[1.5vh]"
+            >
+              Submit
+            </button>
+            <button className="p-[1.5vh] bg-gray-200 text-black rounded-md font-bold ">
+              Cancel
+            </button>
+          </div>
         </form>
       </div>
     </>

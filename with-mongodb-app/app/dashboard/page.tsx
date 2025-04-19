@@ -18,7 +18,7 @@ import React from "react";
 import Link from "next/link";
 
 export default function Dashboard() {
-  const [date, setDate] = React.useState<Date | undefined>(new Date());
+
   return (
     <>
       <div className="px-10">

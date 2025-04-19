@@ -72,9 +72,9 @@ export default function Dashboard() {
   const [repeat, setRepeat] = useState("");
 
   const hobbies = [
-    { label: "fishing", value: "fishing" },
-    { label: "hunting", value: "hunting" },
-    { label: "drawing", value: "drawing" },
+    { label: "Fishing", value: "fishing" },
+    { label: "Hunting", value: "hunting" },
+    { label: "Drawing", value: "drawing" },
   ];
 
   const days = [
@@ -170,77 +170,168 @@ export default function Dashboard() {
   ];
 
   const repetitions = [
-    { label: "once a day", value: "DAILY" },
-    { label: "once a week", value: "WEEKLY" },
-    { label: "once a month", value: "MONTHLY" },
+    { label: "Once a day", value: "DAILY" },
+    { label: "Once a week", value: "WEEKLY" },
+    { label: "Once a month", value: "MONTHLY" },
   ];
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label>Hobby</label>
-        <select onChange={(e) => setHobby(e.target.value)}>
-          {hobbies.map((hobby) => (
-            <option value={hobby.value}>{hobby.label}</option>
-          ))}
-        </select>
+      <div className="px-10">
+        <div className="pt-[1.5vh] pb-[1.5vh]">
+          <h1 className="font-bold text-black text-2xl">Calendar</h1>
+        </div>
+        <div>
+          <form onSubmit={handleSubmit}>
+            <div className="pt-[1.5vh] pb-[1.5vh]">
+              <div>
+                <label className="font-normal text-black text-lg">Hobby:</label>
+              </div>
+              <div>
+                <select
+                  className="border-black border-2 border-solid rounded-sm p-[0.5vh]"
+                  onChange={(e) => setHobby(e.target.value)}
+                >
+                  {hobbies.map((hobby) => (
+                    <option value={hobby.value}>{hobby.label}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
 
-        <label>First Date of Event</label>
-        <select onChange={(e) => setDay(e.target.value)}>
-          {days.map((day) => (
-            <option value={day.value}>{day.label}</option>
-          ))}
-        </select>
-        <select onChange={(e) => setMonth(e.target.value)}>
-          {months.map((month) => (
-            <option value={month.value}>{month.label}</option>
-          ))}
-        </select>
-        <select onChange={(e) => setYear(e.target.value)}>
-          {years.map((year) => (
-            <option value={year.value}>{year.label}</option>
-          ))}
-        </select>
+            <div className="pb-[1.5vh]">
+              <div>
+                <label className="font-normal text-black text-lg">
+                  First Date of Event:
+                </label>
+              </div>
+              <div>
+                <select
+                  className="border-black border-2 border-solid rounded-sm p-[0.5vh] mr-[1.5vh]"
+                  onChange={(e) => setDay(e.target.value)}
+                >
+                  {days.map((day) => (
+                    <option value={day.value}>{day.label}</option>
+                  ))}
+                </select>
+                <select
+                  className="border-black border-2 border-solid rounded-sm p-[0.5vh] mr-[1.5vh]"
+                  onChange={(e) => setMonth(e.target.value)}
+                >
+                  {months.map((month) => (
+                    <option value={month.value}>{month.label}</option>
+                  ))}
+                </select>
+                <select
+                  className="border-black border-2 border-solid rounded-sm p-[0.5vh]"
+                  onChange={(e) => setYear(e.target.value)}
+                >
+                  {years.map((year) => (
+                    <option value={year.value}>{year.label}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
 
-        <label>Event name</label>
-        <input
-          type="text"
-          onChange={(e) => setEventName(e.target.value)}
-        ></input>
+            <div className="pb-[1.5vh]">
+              <div>
+                <label className="font-normal text-black text-lg">
+                  Event name:
+                </label>
+              </div>
+              <div>
+                <input
+                  className="border-black border-2 border-solid rounded-sm p-[0.5vh] bg-gray-200"
+                  type="text"
+                  onChange={(e) => setEventName(e.target.value)}
+                ></input>
+              </div>
+            </div>
 
-        <label>Time Start</label>
-        <select onChange={(e) => setStartHour(e.target.value)}>
-          {hours.map((hour) => (
-            <option value={hour.value}>{hour.label}</option>
-          ))}
-        </select>
-        <select onChange={(e) => setStartMin(e.target.value)}>
-          {mins.map((min) => (
-            <option value={min.value}>{min.label}</option>
-          ))}
-        </select>
+            <div className="pb-[1.5vh]">
+              <div>
+                <label className="font-normal text-black text-lg">
+                  Time Start:
+                </label>
+              </div>
+              <div>
+                <select
+                  className="border-black border-2 border-solid rounded-sm p-[0.5vh] mr-[1.5vh]"
+                  onChange={(e) => setStartHour(e.target.value)}
+                >
+                  {hours.map((hour) => (
+                    <option value={hour.value}>{hour.label}</option>
+                  ))}
+                </select>
+                <select
+                  className="border-black border-2 border-solid rounded-sm p-[0.5vh]"
+                  onChange={(e) => setStartMin(e.target.value)}
+                >
+                  {mins.map((min) => (
+                    <option value={min.value}>{min.label}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
 
-        <label>Time End</label>
-        <select onChange={(e) => setEndHour(e.target.value)}>
-          {hours.map((hour) => (
-            <option value={hour.value}>{hour.label}</option>
-          ))}
-        </select>
-        <select onChange={(e) => setEndMin(e.target.value)}>
-          {mins.map((min) => (
-            <option value={min.value}>{min.label}</option>
-          ))}
-        </select>
+            <div className="pb-[1.5vh]">
+              <div>
+                <label className="font-normal text-black text-lg">
+                  Time End:
+                </label>
+              </div>
+              <div>
+                <select
+                  className="border-black border-2 border-solid rounded-sm p-[0.5vh] mr-[1.5vh]"
+                  onChange={(e) => setEndHour(e.target.value)}
+                >
+                  {hours.map((hour) => (
+                    <option value={hour.value}>{hour.label}</option>
+                  ))}
+                </select>
+                <select
+                  className="border-black border-2 border-solid rounded-sm p-[0.5vh]"
+                  onChange={(e) => setEndMin(e.target.value)}
+                >
+                  {mins.map((min) => (
+                    <option value={min.value}>{min.label}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
 
-        <label>Repeats</label>
-        <select onChange={(e) => setRepeat(e.target.value)}>
-          {repetitions.map((repetition) => (
-            <option value={repetition.value}>{repetition.label}</option>
-          ))}
-        </select>
+            <div className="pb-[1.5vh]">
+              <div>
+                <label className="font-normal text-black text-lg">
+                  Repeats:
+                </label>
+              </div>
+              <div>
+                <select
+                  className="border-black border-2 border-solid rounded-sm p-[0.5vh]"
+                  onChange={(e) => setRepeat(e.target.value)}
+                >
+                  {repetitions.map((repetition) => (
+                    <option value={repetition.value}>{repetition.label}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
 
-        <button type="submit">Submit</button>
-      </form>
+            <div className="pt-[1.5vh]">
+              <button
+                type="submit"
+                className="p-[1.5vh] bg-black text-white rounded-md font-bold mr-[1.5vh]"
+              >
+                Submit
+              </button>
+              <button className="p-[1.5vh] bg-gray-200 text-black rounded-md font-bold ">
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </>
   );
 }
