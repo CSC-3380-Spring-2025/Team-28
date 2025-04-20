@@ -6,6 +6,7 @@ import { useState } from "react";
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [cPassword, setcPassword] = useState("");
   const router = useRouter();
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
