@@ -1,7 +1,13 @@
+'use client'
+
+import axios from "axios"
+import {useState} from "react"
+
 export default function blogPage() {
     return (<>
     <div>
         <div><h1 className="m-20 text-2xl font-bold">Post Title</h1></div>
+        <div><h1 className="m-20 text-xl">Post Date</h1></div>
         <div className="m-5 text-lg">
            <div> Lorem ipsum dolor sit amet consectetur adipiscing elit. 
             Quisque faucibus ex sapien vitae pellentesque sem placerat. 
