@@ -1,6 +1,6 @@
 import connectionToDatabase from "@/lib/mongoose"
 import User from "@/models/user"
-import bcrypt from "bcrypt"
+import bcrypt from "bcryptjs"
 import { NextResponse } from "next/server"
 
 export async function POST(request: { json: () => PromiseLike<{ name: any; email: any; password: any }> | { name: any; email: any; password: any } }) {
