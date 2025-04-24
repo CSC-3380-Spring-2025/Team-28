@@ -8,34 +8,14 @@ export default function addImage() {
   const [title, setTitle] = useState("");
   const [imageURL, setImageURL] = useState("");
   const [description, setDescription] = useState("");
-  const [file, setFile] = useState<File>()
-  const [urls, setUrls] = useState<{
-    url: string;
-    thumbnailUrl: string | null;
-  }>();
+  const [file, setFile] = useState<File>();
   const { edgestore } = useEdgeStore();
   const router = useRouter();
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    if(file){
-      const res = await edgestore.myPublicImages.upload({ file });
-                  setUrls({
-                    url: res.url,
-                    thumbnailUrl: res.thumbnailUrl,
-                  });
-                  setImageURL(res.url)
-                }
-                console.log(title)
-                console.log(imageURL)
-                console.log(description)
-    const response = await axios.post("/api/collections/addImage", {
-      title,
-      imageURL,
-      description,
-    });
-    console.log(response);
-    router.push("/dashboard/collections");
+    
+    //
   };
   return (
     <div>
@@ -65,7 +45,22 @@ export default function addImage() {
             onChange={(e) => setDescription(e.target.value)}
           ></input>
         </div>
-        <button type="submit">Add</button>
+        <button
+          type="submit"
+          onClick={async () => {
+            if (file) {
+              const res = await edgestore.myPublicImages.upload({ file });
+              await axios.post("/api/collections/addImage", {
+                title,
+                imageURL: res.url,
+                description,
+              });
+              router.push("/dashboard/collections");
+            }
+          }}
+        >
+          Add
+        </button>
       </form>
     </div>
   );
