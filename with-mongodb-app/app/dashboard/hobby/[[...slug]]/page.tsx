@@ -9,8 +9,18 @@ export default function HobbyPage() {
     const params = useParams()
     const hobby = params.slug[0]
     const tracker = params.slug[1]
+    const [imageURLs, setImageURLs] = useState<string[]>([]);
+    const [titles, setTitles] = useState<string[]>([]);
 
     const [x, setX] = useState(0)
+
+    async function fetchImages() {
+        const response = await axios.get("/api/collections/fetchImages");
+        setImageURLs(response.data.imageURL);
+        setTitles(response.data.title);
+        console.log(imageURLs);
+        console.log(response);
+      }
 
     useEffect(() => {
         async function fetchPosts() {
@@ -20,15 +30,46 @@ export default function HobbyPage() {
             console.log(x)
         }
         fetchPosts()
+        if(tracker === "collections"){
+            fetchImages()
+        }
       }, [])
 
     if (x == 201){
-            return (
-                <h1> viewing page for hobby {hobby} and tracker type {tracker} </h1>
-            )
+            if(tracker === "collections"){
+                  return (
+                    <>
+                      <div className="px-10">
+                        <div className="pt-[1.5vh] pb-[1.5vh]">
+                          <h1 className="font-bold text-black text-2xl">Collection</h1>
+                        </div>
+                        <div>
+                          <button type="button">Add Image</button>
+                          <div className="grid grid-cols-4">
+                            {imageURLs.map((url, index) => (
+                              <div key={index}className="col-span-1 w-[15vw] h-[20vh] border-2 border-black rounded-md mt-[5vh] mb-[5vh] mr-[5vw]">
+                                <img src={url} className="w-full h-full rounded-sm"></img>
+                                  <p>{titles[index]}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  );
+                
+            }
+            else if(tracker === "blog"){
+
+            }
+            else if(tracker === "supplies"){
+
+            }
+            
     }
     else {
-        return(<h1> hobby does not exist </h1>)
+        return (
+            <h1> viewing page for hobby {hobby} and tracker type {tracker} </h1>
+        )
     }
-
 }
