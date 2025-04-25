@@ -5,19 +5,11 @@ import { NextResponse } from "next/server"
 export async function GET(){
     try{
         await connectionToDatabase()
-        const imageURL = []
-        const title = []
-        const _id = []
-        const find = await Collection.find({email: process.env.LOGGED_IN_USER}, {imageURL:1, title:1, _id:1})
-        for(var i = 0; i < find.length; i++){
-            imageURL.push(find[i].imageURL)
-        }
-        for(var i = 0; i < find.length; i++){
-            title.push(find[i].title)
-        }
-        for(var i = 0; i < find.length; i++){
-            _id.push(find[i]._id)
-        }
+        //include id somewhere
+        const find = await Collection.findOne({email: process.env.LOGGED_IN_EMAIL}, {imageURL:1, title:1, _id:1})
+        const imageURL = find.imageURL
+        const title = find.title
+        const _id = find._id
         console.log(find)
         console.log(imageURL)
         console.log(title)
@@ -28,4 +20,3 @@ export async function GET(){
         return NextResponse.json({message: "uh oh errorrr", status: 500})
     }
 }
-
