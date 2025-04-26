@@ -21,8 +21,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html>
-      <body>
       <SidebarProvider>
         <AppSidebar />
         <SidebarTrigger className="-ml-1 rounded-none" />
@@ -30,7 +28,5 @@ export default function RootLayout({
             {children}
           </SidebarInset>
       </SidebarProvider>
-      </body>
-    </html>
   );
 }
