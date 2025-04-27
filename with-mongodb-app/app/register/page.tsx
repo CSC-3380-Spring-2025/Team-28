@@ -13,7 +13,7 @@ export default function Register() {
         e.preventDefault()
         const response = await axios.post('/api/register', {name, email, password})
         console.log(response)
-        router.push('/login')
+        router.push('/')
     }
   return (
     <div>
