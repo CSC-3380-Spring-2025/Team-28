@@ -17,8 +17,9 @@ export default function Register() {
       password,
     });
     console.log(response);
-    router.push("/login");
+    router.push("/");
   };
+
   return (
     <div
       style={{
