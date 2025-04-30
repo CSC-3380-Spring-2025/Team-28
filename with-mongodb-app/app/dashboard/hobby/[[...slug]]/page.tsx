@@ -14,7 +14,7 @@ export default function HobbyPage() {
   //Parameters from url
   const hobby = params.slug[0];
   const tracker = params.slug[1];
-  //const desc = params.slug[2];
+  const desc = params.slug[2];
   const paramURL = searchParams.get("url");
   //useStates
   const [imageURLs, setImageURLs] = useState<string[]>([]);
@@ -150,7 +150,8 @@ export default function HobbyPage() {
               </form>
             </div>
           );
-        } else if (paramURL === "edit") {
+        } else if (desc === "edit") {
+          //insert edit page right here
         } else {
           return (
             <>
@@ -202,7 +203,8 @@ export default function HobbyPage() {
                 <div className="pt-[1.5vh] pb-[1.5vh] col-span-1 place-self-end">
                   <button
                     type="button"
-                    className="p-[1.5vh] bg-black text-white rounded-md font-bold mr-[1.5vh] "
+                    className="p-[1.5vh] bg-black text-white rounded-md font-bold mr-[1.5vh]"
+                    onClick={() => router.push(`/dashboard/hobby/${hobby}/collections?url=add`)}
                   >
                     Add Image
                   </button>
@@ -217,8 +219,8 @@ export default function HobbyPage() {
                       className="col-span-1 w-[15vw] h-[20vh] border-2 border-black rounded-md mt-[5vh] mb-[5vh] mr-[5vw]"
                     >
                       <img src={url} className="w-full h-full rounded-sm"></img>
-                      <div className="flex">
-                        <p className="font-semibold">{titles[index]}</p>
+                      <div className="flex justify-center justify-items-center">
+                        <p className="font-semibold text-center">{titles[index]}</p>
                       </div>
                     </div>
                   ))}
