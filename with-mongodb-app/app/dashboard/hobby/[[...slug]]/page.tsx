@@ -62,6 +62,11 @@ export default function HobbyPage() {
     router.push(`/dashboard/hobby/${hobby}/${tracker}/?url=${shortURL}`);
   }
 
+  async function deleteImage(url: string){
+    await axios.post("/api/collections/deleteImage", {url})
+    router.push(`/dashboard/hobby/${hobby}/${tracker}`);
+  }
+
   useEffect(() => {
     fetchHobbyTracker();
     if (tracker === "collections") {
@@ -172,6 +177,7 @@ export default function HobbyPage() {
                     <button
                       type="button"
                       className="p-[1.5vh] bg-[#ED2727] text-white rounded-md font-bold mr-[1.5vh]"
+                      onClick={() => deleteImage(paramURL)}
                     >
                       Delete
                     </button>
