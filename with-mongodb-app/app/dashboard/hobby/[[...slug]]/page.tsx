@@ -156,7 +156,58 @@ export default function HobbyPage() {
             </div>
           );
         } else if (desc === "edit") {
-          //insert edit page right here
+          const handleSubmit = async (e: { preventDefault: () => void }) => {
+            e.preventDefault();
+          };
+          return (
+            <div className="px-10">
+              <div className="pt-[1.5vh] pb-[1.5vh]">
+                <h1 className="font-bold text-black text-2xl">
+                  Edit Item in Collection
+                </h1>
+              </div>
+              <form onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 pb-[1.5vh]">
+                  <label className="font-normal text-black text-lg col-span-1">
+                    Item Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter name"
+                    onChange={(e) => setTitle(e.target.value)}
+                    className="border-black border-2 border-solid rounded-sm p-[0.5vh] bg-gray-200 col-span-1"
+                  ></input>
+                </div>
+                <div className="grid grid-cols-1 pb-[1.5vh]">
+                  <label className="font-normal text-black text-lg col-span-1">
+                    Item Description
+                  </label>
+                  <textarea
+                    className="border-black border-2 border-solid rounded-sm pt-[1.5vh] pb-[1.5vh] bg-gray-200 col-span-1"
+                    placeholder="Enter description"
+                    onChange={(e) => setDescription(e.target.value)}
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  className="p-[1.5vh] bg-black text-white rounded-md font-bold mr-[1.5vh]"
+                  onClick={async () => {
+                    await axios.post("/api/collections/editImage", {
+                      title,
+                      imageURL: paramURL,
+                      description,
+                    });
+                      router.push(`/dashboard/hobby/${hobby}/collections`);
+                  }}
+                >
+                  Edit
+                </button>
+                <button className="p-[1.5vh] bg-gray-200 text-black rounded-md font-bold" onClick={() => router.push(`/dashboard/hobby/${hobby}/collections`)}>
+                  Cancel
+                </button>
+              </form>
+            </div>
+          );
         } else {
           return (
             <>
@@ -171,6 +222,7 @@ export default function HobbyPage() {
                     <button
                       type="button"
                       className="p-[1.5vh] bg-black text-white rounded-md font-bold mr-[1.5vh]"
+                      onClick={() => router.push(`/dashboard/hobby/${hobby}/collections/edit?url=${paramURL}`)}
                     >
                       Edit
                     </button>
