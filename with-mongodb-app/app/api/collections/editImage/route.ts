@@ -16,15 +16,15 @@ export async function POST(request: { json: () => PromiseLike<{title: any; image
         }
         else if(title === ""){
             await Collection.findOneAndUpdate({imageURL: imageURL}, {description: description})
-            return NextResponse.json({message: "image has been edited", status: 201})
+            return NextResponse.json({message: "description has been edited", status: 201})
         }
         else if(description === ""){
             await Collection.findOneAndUpdate({imageURL: imageURL}, {title: title})
-            return NextResponse.json({message: "image has been edited", status: 201})
+            return NextResponse.json({message: "title has been edited", status: 201})
         }
         else{
             await Collection.findOneAndUpdate({imageURL: imageURL}, {title: title, description: description})
-            return NextResponse.json({message: "image has been edited", status: 201})
+            return NextResponse.json({message: "title & description have been edited", status: 201})
         }
     } catch(err) {
         console.log(err)
