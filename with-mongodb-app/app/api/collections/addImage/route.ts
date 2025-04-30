@@ -8,6 +8,7 @@ export async function POST(request: { json: () => PromiseLike<{ title: any; imag
         const {title, imageURL, description, hobby} = await request.json()
         const dateAdded = new Date()
         console.log(imageURL)
+        console.log(hobby)
         const email = process.env.NEXT_PUBLIC_LOGGED_IN_USER
         const newImage = new Collection({
             imageURL, 

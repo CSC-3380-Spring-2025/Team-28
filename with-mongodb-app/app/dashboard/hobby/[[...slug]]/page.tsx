@@ -37,7 +37,7 @@ export default function HobbyPage() {
     console.log(x);
   }
 
-  //Collection Page 
+  //Collection Page
   async function fetchImages() {
     const response = await axios.get("/api/collections/fetchImages");
     setImageURLs(response.data.imageURL);
@@ -67,8 +67,7 @@ export default function HobbyPage() {
     if (tracker === "collections") {
       if (paramURL) {
         fetchIndividualImage(paramURL);
-      }
-      else{
+      } else {
         fetchImages();
       }
     } else if (tracker === "blog") {
@@ -84,35 +83,50 @@ export default function HobbyPage() {
             e.preventDefault();
           };
           return (
-            <div>
+            <div className="px-10">
+              <div className="pt-[1.5vh] pb-[1.5vh]">
+                <h1 className="font-bold text-black text-2xl">
+                  Add New Item to Collection
+                </h1>
+              </div>
               <form onSubmit={handleSubmit}>
-                <div>
-                  <label>Image Name</label>
+                <div className="grid grid-cols-1 pb-[1.5vh]">
+                  <label className="font-normal text-black text-lg col-span-1">
+                    Item Name
+                  </label>
                   <input
                     type="text"
-                    placeholder="enter name"
+                    placeholder="Enter name"
                     onChange={(e) => setTitle(e.target.value)}
+                    className="border-black border-2 border-solid rounded-sm p-[0.5vh] bg-gray-200 col-span-1"
                   ></input>
                 </div>
-                <div>
-                  <label>Upload an Image</label>
+                <div className="grid grid-cols-1 pb-[1.5vh]">
+                  <label className="font-normal text-black text-lg col-span-1">
+                    Item Image
+                  </label>
                   <input
                     type="file"
+                    className="border-black border-2 border-solid rounded-sm p-[0.5vh] bg-gray-200 col-span-1
+                    file:pt-[1vh] file:pb-[1vh] file:px-6 file:border-0 file:text-md file:font-normal file:bg-none file:text-black"
                     onChange={(e) => {
                       setFile(e.target.files?.[0]);
                     }}
                   />
                 </div>
-                <div>
-                  <label>Image Description</label>
-                  <input
-                    type="text"
-                    placeholder="enter description"
+                <div className="grid grid-cols-1 pb-[1.5vh]">
+                  <label className="font-normal text-black text-lg col-span-1">
+                    Item Description
+                  </label>
+                  <textarea
+                    className="border-black border-2 border-solid rounded-sm pt-[1.5vh] pb-[1.5vh] bg-gray-200 col-span-1"
+                    placeholder="Enter description"
                     onChange={(e) => setDescription(e.target.value)}
-                  ></input>
+                  ></textarea>
                 </div>
                 <button
                   type="submit"
+                  className="p-[1.5vh] bg-black text-white rounded-md font-bold mr-[1.5vh]"
                   onClick={async () => {
                     if (file) {
                       const res = await edgestore.myPublicImages.upload({
@@ -124,11 +138,14 @@ export default function HobbyPage() {
                         description,
                         hobby,
                       });
-                      router.push("/dashboard/collections");
+                      router.push(`/dashboard/hobby/${hobby}/collections`);
                     }
                   }}
                 >
                   Add
+                </button>
+                <button className="p-[1.5vh] bg-gray-200 text-black rounded-md font-bold" onClick={() => router.push(`/dashboard/hobby/${hobby}/collections`)}>
+                  Cancel
                 </button>
               </form>
             </div>
@@ -137,7 +154,7 @@ export default function HobbyPage() {
         } else {
           return (
             <>
-              <div className="px-10 ">
+              <div className="px-10">
                 <div className="grid grid-cols-2 w-full">
                   <div className="pt-[1.5vh] pb-[1.5vh] col-span-1 place-self-start">
                     <h1 className="font-bold text-black text-2xl">
@@ -162,7 +179,7 @@ export default function HobbyPage() {
                 <div>
                   <span>{indDate}</span>
                 </div>
-                <div >
+                <div>
                   <div className="w-1/2 h-1/2">
                     <img src={indImage}></img>
                   </div>
@@ -212,7 +229,6 @@ export default function HobbyPage() {
         );
       }
     } else if (tracker === "blog") {
-
     } else if (tracker === "supplies") {
     }
   } else {
