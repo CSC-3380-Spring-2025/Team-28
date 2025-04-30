@@ -39,7 +39,7 @@ export default function HobbyPage() {
 
   //Collection Page
   async function fetchImages() {
-    const response = await axios.get("/api/collections/fetchImages");
+    const response = await axios.post("/api/collections/fetchImages", {hobby});
     setImageURLs(response.data.imageURL);
     setTitles(response.data.title);
     console.log(imageURLs);
