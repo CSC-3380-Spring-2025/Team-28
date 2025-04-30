@@ -7,7 +7,7 @@ export async function POST(request: { json: () => PromiseLike<{ hobby: string; t
     try{
         await connectionToDatabase()
         const {hobby, tracker} = await request.json()
-        const user = await User.findOne({email: process.env.LOGGED_IN_USER})
+        const user = await User.findOne({email: process.env.NEXT_PUBLIC_LOGGED_IN_USER})
         console.log(user.hobbies)
         if(user.pages.includes(hobby +"/"+ tracker)){
             return NextResponse.json({message: "path exists", status: 201, hobby: hobby, tracker: tracker})

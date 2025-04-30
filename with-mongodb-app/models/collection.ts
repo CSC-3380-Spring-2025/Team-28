@@ -5,6 +5,8 @@ const collectionSchema = new mongoose.Schema({
     dateAdded: {type: String, required: true},
     title: {type: String, required: true},
     description: {type: String},
+    email: {type: String, required: true},
+    hobby: {type: String, required: true}
 })
 
 const Collection = mongoose.models.Collection || mongoose.model("Collection", collectionSchema)

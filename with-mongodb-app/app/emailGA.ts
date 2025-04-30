@@ -8,25 +8,21 @@ async function run() {
 
   await connectionToDatabase();
 
-  let arr: any[] = [];
+  let emailArr: any[] = [];
+  let scheduleArr: any[] = [];
     try {
-    await User.find({})
-    .then((docs: any[]) => {
-      docs.forEach((doc: { email: any; }) => {
-        sendEmail(doc.email)
-        arr.push(doc.email);
-        console.log(arr)
-      });
-    })
-    .catch((err: any) => console.error(err));
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    const userData = await User.find({})
+    for(var i = 0; i < userData.length; i++){
+      emailArr.push(userData[i].email)
+    }
+    for(var i = 0; i < userData.length; i++){
+      scheduleArr.push(userData[i].schedule)
+    }
     } catch (err) {
       console.log(err);
     } finally {
+      console.log(emailArr.join(","));
     }
-  console.log(arr.join(","));
-
-  
 }
 
 async function sendEmail(email: any){

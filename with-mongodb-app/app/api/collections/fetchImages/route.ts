@@ -8,7 +8,7 @@ export async function GET(){
         const imageURL = []
         const title = []
         const _id = []
-        const find = await Collection.find({email: process.env.LOGGED_IN_USER}, {imageURL:1, title:1, _id:1})
+        const find = await Collection.find({email: process.env.NEXT_PUBLIC_LOGGED_IN_USER}, {imageURL:1, title:1, _id:1})
         for(var i = 0; i < find.length; i++){
             imageURL.push(find[i].imageURL)
         }
