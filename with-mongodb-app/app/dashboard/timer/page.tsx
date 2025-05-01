@@ -37,7 +37,6 @@ function formatTime(minutes: number, seconds: number) {
 
 function startNewTimer(mins: number){
     enteredTime = mins;
-    
     minutes = enteredTime;
     seconds = 0;
     isPaused = true;
@@ -101,8 +100,6 @@ function chooseTime() {
 }
 
 export default function Timer() {
-
-
   return (
     <>
       <div className="px-10">
@@ -129,7 +126,6 @@ export default function Timer() {
               <button className="col-span-1 p-[2vh] bg-black text-white rounded-md font-bold mr-[1.5vh]" onClick={() => chooseTime()}>Choose Time</button>
             </div>
           </div>
-          
       </div>
     </>
   );

@@ -8,16 +8,6 @@ export default function hobbyEditor(){
   const [hobby, setHobby] = useState('')
   const [tracker, setTracker] = useState('')
 
-  const handleSubmit = async(e: { preventDefault: () => void; }) => {
-    e.preventDefault()
-    try{
-      const response = await axios.post('/api/hobby', {hobby, tracker})
-      console.log(response)
-    } catch(err) {
-      console.log(err)
-    }
-  }
-
   const handleHobbyAdd = async(e: { preventDefault: () => void; }) => {
     e.preventDefault()
     try{

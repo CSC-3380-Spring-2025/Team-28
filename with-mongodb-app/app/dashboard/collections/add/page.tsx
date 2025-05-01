@@ -6,7 +6,6 @@ import { useState } from "react";
 
 export default function addImage() {
   const [title, setTitle] = useState("");
-  const [imageURL, setImageURL] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState<File>();
   const { edgestore } = useEdgeStore();
@@ -14,8 +13,6 @@ export default function addImage() {
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    
-    //
   };
   return (
     <div>

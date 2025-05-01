@@ -2,17 +2,21 @@ import connectionToDatabase from "@/lib/mongoose"
 import Collection from "@/models/collection"
 import { NextResponse } from "next/server"
 
-export async function POST(request: { json: () => PromiseLike<{ title: any; imageURL: any; description: any }> | { title: any; imageURL: any; description: any } }){
+export async function POST(request: { json: () => PromiseLike<{ title: any; imageURL: any; description: any; hobby: any }> | { title: any; imageURL: any; description: any; hobby: any } }){
     try{
         await connectionToDatabase()
-        const {title, imageURL, description} = await request.json()
+        const {title, imageURL, description, hobby} = await request.json()
         const dateAdded = new Date()
         console.log(imageURL)
+        console.log(hobby)
+        const email = process.env.NEXT_PUBLIC_LOGGED_IN_USER
         const newImage = new Collection({
             imageURL, 
             dateAdded,
             title,
-            description
+            description,
+            email,
+            hobby
         })
         await newImage.save()
         return NextResponse.json({message: "image added to collection", status: 201})

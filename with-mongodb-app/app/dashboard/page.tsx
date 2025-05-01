@@ -12,13 +12,14 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { Heart, icons } from "lucide-react";
+import { Heart, icons, Pencil, Settings, Timer, User } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation"
 
 export default function Dashboard() {
-
+  const router = useRouter()
   return (
     <>
       <div className="px-10">
@@ -71,38 +72,38 @@ export default function Dashboard() {
               <h3 className="font-bold text-md pb-[1vh]">Tools</h3>
               <div className="grid grid-cols-1">
                 <div className="pb-[1vh]">
-                  <Button className="rounded-full w-3/5 justify-stretch">
-                    <Heart></Heart>
+                  <Button className="rounded-full w-3/5 justify-stretch" onClick={() => router.push("/dashboard/hobby-editor")}>
+                    <Pencil></Pencil>
                     Hobby Editor
                   </Button>
                 </div>
                 <div className="pb-[1vh]">
-                  <Button className="rounded-full w-3/5 justify-stretch">
-                    <Heart></Heart>
+                  <Button className="rounded-full w-3/5 justify-stretch" onClick={() => router.push("/dressup")}>
+                    <User></User>
                     Mascot
                   </Button>
                 </div>
                 <div className="pb-[1vh]">
-                  <Button className="rounded-full w-3/5 justify-stretch">
+                  <Button className="rounded-full w-3/5 justify-stretch" onClick={() => router.push("/dashboard/calendar")}>
                     <Heart></Heart>
                     Calendar
                   </Button>
                 </div>
                 <div className="pb-[1vh]">
-                  <Button className="rounded-full w-3/5 justify-stretch">
-                    <Heart></Heart>
+                  <Button className="rounded-full w-3/5 justify-stretch" onClick={() => router.push("/dashboard/timer")}>
+                    <Timer></Timer>
                     Timer
                   </Button>
                 </div>
                 <div className="pb-[1vh]">
-                  <Button className="rounded-full w-3/5 justify-stretch">
+                  <Button className="rounded-full w-3/5 justify-stretch" onClick={() => router.push("/dashboard/email")}>
                     <Heart></Heart>
                     Reminders
                   </Button>
                 </div>
                 <div className="pb-[1vh]">
-                  <Button className="rounded-full w-3/5 justify-stretch">
-                    <Heart></Heart>
+                  <Button className="rounded-full w-3/5 justify-stretch" onClick={() => router.push("/dashboard/settings")}>
+                    <Settings></Settings>
                     Settings
                   </Button>
                 </div>
