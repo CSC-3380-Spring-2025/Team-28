@@ -7,13 +7,13 @@ export default function newBlogPost() {
     const [title, setTitle] = useState('')
     const [date, setDate] = useState('')
     const [content, setContent] = useState('')
-    const [image, setImage] = useState('')
-    const [blogID, setBlogID] = useState('')
+    const [email, setEmail] = useState('')
+    const [hobby, setHobby] = useState('')
 
     const handleSubmit = async(e: { preventDefault: () => void; }) => {
         e.preventDefault()
         try{
-          const response = await axios.post('/api/blog-post', {title, date, content, image, blogID})
+          const response = await axios.post('/api/blog-post', {title, date, content, email, hobby})
           console.log(response)
         } catch(err) {
           console.log(err)
@@ -31,8 +31,7 @@ export default function newBlogPost() {
             <input type="text" placeholder="Enter title" onChange={(e) => setTitle(e.target.value)}></input>
             <input type="text" placeholder="Enter date" onChange={(e) => setDate(e.target.value)}></input>
             <input type="text" placeholder="Enter post text" onChange={(e) => setContent(e.target.value)}></input>
-            <input type="text" placeholder="Enter image link" onChange={(e) => setImage(e.target.value)}></input>
-            /**handle blog ID */
+            /**handle email adn hobby**/
             <button type="submit">Submit</button>
           </form>
         </div>
