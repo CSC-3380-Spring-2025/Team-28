@@ -8,36 +8,40 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import { teardownTraceSubscriber } from "next/dist/build/swc/generated-native";
-import { table } from "console";
+import { TableData } from "active-table/dist/types/tableData";
 
+const  updateCell = (dataUpdate: any) =>  {
+    console.log(dataUpdate)
+  }
 
 export default function Supplies() {
-  // need to import the component dynamically as it uses the 'window' property
-  // to calculate its dimensions and listen to user input events - which are only
-  // available in the browser
-  // if you have found a better way of adding the component in next, please create a new
-  // issue ticket so we can update the example!
   const ActiveTable = dynamic(
     () => import("active-table-react").then((mod) => mod.ActiveTable),
     {
       ssr: false,
     }
   );
+   
+  
 
-  // content is an example of passing a state object into the property
-  // headerStyles is an example of passing an object directly into the property
+  
+
   return (
     <div className="p-8">
       <h1 className="p-8 font-bold text-7xl mb-9">Supplies</h1>
       <div className="grid-flow-col grid-rows-3 gap-4 flex">
         <div>
           <ActiveTable
+            onDataUpdate={updateCell}
             id="active-table"
             isHeaderTextEditable={false}
             displayAddNewColumn={false}
             columnDropdown={{ displaySettings: { isAvailable: false } }}
             tableStyle={{ borderRadius: "5px", border: "unset" }}
-            stripedRows={{odd: {"backgroundColor": ""}, even: {backgroundColor: "#ebebeb7a"}}}
+            stripedRows={{
+              odd: { backgroundColor: "" },
+              even: { backgroundColor: "#ebebeb7a" },
+            }}
             headerStyles={{
               default: {
                 backgroundColor: "#000000",
