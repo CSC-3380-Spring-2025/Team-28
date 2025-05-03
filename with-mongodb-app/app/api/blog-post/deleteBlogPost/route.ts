@@ -6,8 +6,8 @@ export async function POST(request: { json: () => PromiseLike<{ id: any }> | { i
     try{
         await connectionToDatabase()
         const {id} = await request.json()
-        await Blog.deleteOne({_id: {$oid: id}})
-        return NextResponse.json({message: "Post edited!", status: 201})
+        await Blog.findByIdAndDelete({_id: id})
+        return NextResponse.json({message: "Post deleted!", status: 201})
     } catch(err) {
         console.log(err)
         return NextResponse.json({message: "uh oh errorrr", status: 500})

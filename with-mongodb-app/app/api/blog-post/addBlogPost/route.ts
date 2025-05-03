@@ -8,8 +8,11 @@ export async function POST(request: { json: () => PromiseLike<{ title: any; cont
         const {title, content, hobby} = await request.json()
         const dateAdded = new Date()
         const email = process.env.NEXT_PUBLIC_LOGGED_IN_USER
+        console.log(title)
+        console.log(content)
+        console.log(dateAdded)
         const newBlogPost = new Blog({ 
-            dateAdded,
+            date: dateAdded,
             title,
             content,
             email,

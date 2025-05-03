@@ -18,6 +18,7 @@ export async function POST(request: { json: () => PromiseLike<{ hobby: any }> | 
         }
         for(var i = 0; i < find.length; i++){
             _id.push(find[i]._id)
+            console.log(_id.toString())
         }
         return NextResponse.json({message: "Posts displayed", status: 201, content: content, title: title, _id: _id})
     } catch(err) {

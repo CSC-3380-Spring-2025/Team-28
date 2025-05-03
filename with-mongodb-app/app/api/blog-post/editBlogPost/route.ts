@@ -6,20 +6,21 @@ export async function POST(request: { json: () => PromiseLike<{ title: any; id: 
     try{
         await connectionToDatabase()
         const {title, id, content} = await request.json()
+        console.log(id)
         if((title === "") && (content === "")){
-            await Blog.findOneAndUpdate({_id: {$oid: id}}, {title: title, content: content})
+            await Blog.findByIdAndUpdate({_id: id}, {title: title, content: content})
             return NextResponse.json({message: "Nothing to edit", status: 201})
         }
         else if(title === ""){
-            await Blog.findOneAndUpdate({_id: {$oid: id}}, {content: content})
+            await Blog.findByIdAndUpdate({_id: id}, {content: content})
             return NextResponse.json({message: "content has been edited", status: 201})
         }
         else if(content === ""){
-            await Blog.findOneAndUpdate({_id: {$oid: id}}, {title: title})
+            await Blog.findByIdAndUpdate({_id: id}, {title: title})
             return NextResponse.json({message: "Title has been edited", status: 201})
         }
         else{
-            await Blog.findOneAndUpdate({_id: {$oid: id}}, {title: title, content: content})
+            await Blog.findByIdAndUpdate({_id: id}, {title: title, content: content})
             return NextResponse.json({message: "Title & content have been edited", status: 201})
         }
     } catch(err) {
