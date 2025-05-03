@@ -1,3 +1,5 @@
+//The GA stands for Github Action, so the full file name is emailGithubAction.ts
+//This file is ran by the GithubAction we have to send emails to users every week
 require("dotenv").config();
 import nodemailer from "nodemailer"
 import connectionToDatabase from "@/lib/mongoose"
