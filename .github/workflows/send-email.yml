@@ -24,4 +24,4 @@ jobs:
 
       - run: pnpm i --frozen-lockfile
 
-      - run: npx tsx main.ts
+      - run: npx tsx with-mongodb-app/app/emailGA.ts
