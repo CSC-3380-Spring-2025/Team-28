@@ -9,8 +9,9 @@ export async function POST(request: { json: () => PromiseLike<{ name: any; email
         const {name, email, password} = await request.json()
         const hobbies: String[] = []
         const pages: String[] = []
+        const sendEmail = false
         const schedule = ""
-        const reminder = ["", "", ""]
+        const reminder = ""
         const userExist = await User.findOne({email})
         if(userExist){
             return NextResponse.json({error: "user already exists"})
@@ -22,8 +23,9 @@ export async function POST(request: { json: () => PromiseLike<{ name: any; email
             password: hashPass,
             hobbies,
             pages,
+            sendEmail,
             schedule,
-            reminder
+            reminder,
         })
         await newUser.save()
         return NextResponse.json({message: "user registered", status: 201})

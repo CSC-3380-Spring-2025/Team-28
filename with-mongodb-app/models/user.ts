@@ -6,8 +6,9 @@ const userSchema = new mongoose.Schema({
     password: {type: String, required: true},
     hobbies: {type: Array},
     pages: {type: Array},
-    schedule: {type: Array},
-    reminder: {type: Array}
+    sendEmail: {type: Boolean},
+    schedule: {type: String},
+    reminder: {type: String},
 })
 
 const User = mongoose.models.User || mongoose.model('User', userSchema)

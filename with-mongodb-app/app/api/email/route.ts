@@ -17,11 +17,7 @@ export async function POST(request: { json: () => PromiseLike<{ recieveEmails: a
     console.log(recieveEmails, day, hour, min, message)
     const scheduleDate = min+" "+hour+" * * "+day
 
-    const schedule = [scheduleDate, message]
-
-    if (recieveEmails == "yes"){
-        await User.findOneAndUpdate({email: email}, {$set: {schedule: schedule}}, { new: true })
-    }
+    await User.findOneAndUpdate({email: email}, {$set: {sendEmail: recieveEmails, schedule: scheduleDate, reminder: message}}, { new: true })
     
     return NextResponse.json({ message: "user logged in", status: 201 });
   } catch (err) {
