@@ -44,7 +44,7 @@ export default function Login() {
         <h2 className="mt-2 mb-1">Email</h2>
         <div>
           <input
-            className="bg-[#D9D9D9] rounded-md text-black h-10 p-2"
+            className="bg-[#D9D9D9] rounded-md text-black h-10 p-2 border-black border-2 border-solid"
             type="email"
             placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
@@ -54,7 +54,7 @@ export default function Login() {
         <h2 className="mt-2 mb-1">Password</h2>
         <div>
           <input
-            className="bg-[#D9D9D9] rounded-md text-black h-10  p-2 "
+            className="bg-[#D9D9D9] rounded-md text-black h-10 p-2 border-black border-2 border-solid"
             type="password"
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}

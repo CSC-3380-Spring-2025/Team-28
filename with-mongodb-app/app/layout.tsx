@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description: "The Login Page for the Hobby Helper webapp",
 };
 
+//Bare bones layout to display anything related to logging in
 export default function RootLayout({
   children,
 }: {
