@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
     sendEmail: {type: Boolean},
     schedule: {type: String},
     reminder: {type: String},
+    tasks: {type: Array}
 })
 
 const User = mongoose.models.User || mongoose.model('User', userSchema)
