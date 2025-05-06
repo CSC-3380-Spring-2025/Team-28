@@ -5,9 +5,7 @@ const connectionToDatabase = async () => {
         if(!process.env.MONGODB_URI){
             throw new Error("MongoDB URL not defined")
         }
-        await mongoose.connect(process.env.MONGODB_URI, {
-          dbName: "Hobby_Tracker",
-        });
+        await mongoose.connect(process.env.MONGODB_URI)
         console.log("Connection to database !!")
     } catch(err) {
         console.log(err)
