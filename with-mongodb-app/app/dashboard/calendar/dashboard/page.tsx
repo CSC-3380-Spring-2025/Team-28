@@ -9,9 +9,9 @@ export default function Dashboard() {
   //Used to set the access token to access user's Google Calendar
   const [accessToken, setAccessToken] = useState<string | null>(null);
   //Used to store the hobbies of the user
-  const [userHobbies, setUserHobbies] = useState<String[]>([])
+  const [userHobbies, setUserHobbies] = useState<string[]>([])
   //Displays hobbies of the user to be picked
-  const [hobby, setHobby] = useState("");
+  const [hobby, setHobby] = useState("default hobby");
   //Stores user input of what the calendar event should be named
   const [eventName, setEventName] = useState("hobby");
   //Stores the day, month, and year an event should start (respectively)
@@ -91,14 +91,19 @@ export default function Dashboard() {
         body: jsonData,
       }
     );
+    //Go back to the dashboard page
+    router.push("/dashboard")
   };
-
   //These constants are used to display the options for a user to pick from on a dropdown box
   //This one is populated with the hobbies recieved from user's document in the User collection
+
+  //BUG NOTICE: There is still a bug where you have to make a selection on all the dropdowns
+  //Otherwise, the input will not be accepted by Google Calendar to create an event
   const hobbies: any[] = [];
   for(let i = 0; i < userHobbies.length; i++){
     hobbies.push({label: userHobbies[i], value:userHobbies[i]})
   }
+  
   //Pick a day from the 1st to the 30th
   const days = [
     { label: "01", value: "01" },
@@ -354,7 +359,6 @@ export default function Dashboard() {
               {/*Submit button - submits data to database and moves user back to the dashboard*/}
               <button
                 type="submit"
-                onClick={() => router.push("/dashboard")}
                 className="p-[1.5vh] bg-black text-white rounded-md font-bold mr-[1.5vh]"
               >
                 Submit

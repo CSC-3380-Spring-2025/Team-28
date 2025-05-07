@@ -1,14 +1,6 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -38,7 +30,7 @@ export default function Dashboard() {
   //Fetch data to display on dashboard on initial dashboard load
   const initPage = async () => {
     //Fetch and set three random images from the user's Collections tracker to display in the carousel
-    const response = await axios.get("/api/dashboard/fetchRandomImages", );
+    const response = await axios.get("/api/dashboard/fetchRandomImages");
     setCarouselImages(response.data.images);
     //Fetch and set any tasks the user had previously set
     const response2 = await axios.get("/api/dashboard/taskFetch");
@@ -92,13 +84,13 @@ export default function Dashboard() {
         <div className="pt-[1.5vh] pb-[1.5vh]">
           <h1 className="font-bold text-2xl">Dashboard</h1>
         </div>
-        {/*Image carousel*/}
         <div className="grid grid-cols-3 gap-4 relative w-full max-w-full items-start">
-          <div className="col-span-2 ">
+          {/*Image carousel*/}
+          {/*<div className="col-span-2 ">
             <Carousel className="w-full h-full">
               <CarouselContent className="h-full">
                 {/*This maps each random image to its own card*/}
-                {Array.from({ length: 3 }).map((_, index) => {
+                {/*Array.from({ length: 3 }).map((_, index) => {
                   const image = carouselImages[index];
                   console.log(image)
                   console.log(image.hobby)
@@ -108,7 +100,7 @@ export default function Dashboard() {
                         <Card>
                           {/*When you click on the image...*/}
                           {/*...it will redirect to its respective individual Collections page*/}
-                          <CardContent className="flex w-full h-[40vh] items-center justify-center">
+                          {/*<CardContent className="flex w-full h-[40vh] items-center justify-center">
                             {image && (
                               <img
                                 src={image.imageURL}
