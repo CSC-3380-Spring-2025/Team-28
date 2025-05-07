@@ -18,7 +18,7 @@
     "active-table": "^1.1.6",
     "active-table-react": "^1.1.6",
     "axios": "^1.8.4",
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^3.0.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",

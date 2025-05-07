@@ -3,7 +3,7 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const code = searchParams.get("code");
 
-  const clientId = process.env.CLIENT_ID;
+  const clientId = process.env.NEXT_PUBLIC_AUTH_GOOGLE_ID;
   const clientSecret = process.env.CLIENT_SECRET;
   const redirectUri = "http://localhost:3000/api/auth";
   const grandType = "authorization_code";

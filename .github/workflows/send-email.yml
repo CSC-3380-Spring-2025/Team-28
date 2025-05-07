@@ -2,7 +2,7 @@ name: weekly reminders
 
 on:
   schedule:
-    - cron: "0 14 * * *"
+    - cron: "0 14 * * 0"
   workflow_dispatch:
 
 env:
@@ -24,4 +24,4 @@ jobs:
 
       - run: pnpm i --frozen-lockfile
 
-      - run: npx tsx main.ts
+      - run: npx tsx with-mongodb-app/app/emailGA.ts

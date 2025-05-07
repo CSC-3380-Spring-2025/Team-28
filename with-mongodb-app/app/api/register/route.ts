@@ -1,15 +1,17 @@
 import connectionToDatabase from "@/lib/mongoose"
 import User from "@/models/user"
-import bcrypt from "bcrypt"
+import bcrypt from "bcryptjs"
 import { NextResponse } from "next/server"
 
 export async function POST(request: { json: () => PromiseLike<{ name: any; email: any; password: any }> | { name: any; email: any; password: any } }) {
     try{
         connectionToDatabase()
         const {name, email, password} = await request.json()
-        const hobbies = [""]
+        const hobbies: String[] = []
+        const pages: String[] = []
+        const sendEmail = false
         const schedule = ""
-        const reminder = ["", "", ""]
+        const reminder = ""
         const userExist = await User.findOne({email})
         if(userExist){
             return NextResponse.json({error: "user already exists"})
@@ -20,8 +22,10 @@ export async function POST(request: { json: () => PromiseLike<{ name: any; email
             email,
             password: hashPass,
             hobbies,
+            pages,
+            sendEmail,
             schedule,
-            reminder
+            reminder,
         })
         await newUser.save()
         return NextResponse.json({message: "user registered", status: 201})
