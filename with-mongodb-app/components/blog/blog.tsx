@@ -6,58 +6,63 @@ import { useRouter } from "next/navigation";
 //Accept hobby, imageURLs, and titles arguments from the hobby page that displays hobby trackers
 type componentProps = {
   hobby: string | undefined;
-  imageURLs: string[];
-  titles: string[];
+  blogContents: string[];
+  blogTitles: string[];
+  blogIDs: any[];
 };
 
-export default function Collections({
+export default function Blog({
   hobby,
-  imageURLs,
-  titles,
+  blogContents,
+  blogTitles,
+  blogIDs,
 }: componentProps): JSX.Element {
   //Setup router to redirect users to proper pages
   const router = useRouter();
 
   //Reoutes user to the individual collection page depending on the image they clicked on
-  async function individualImageReroute(url: string) {
-    const shortURL = encodeURIComponent(url);
-    router.push(`/dashboard/hobby/${hobby}/collections/?url=${shortURL}`);
+  async function individualBlogPostReroute(id: string) {
+    router.push(
+      `/dashboard/hobby/${hobby}/blog/?url=${encodeURIComponent(id)}`
+    );
   }
 
   return (
     <>
       <div className="px-10 max-w-full">
         <div className="grid grid-cols-2">
-          {/*Title of page*/}
           <div className="pt-[1.5vh] pb-[1.5vh] col-span-1 place-self-start">
-            <h1 className="font-bold text-black text-2xl">Collections</h1>
+            <h1 className="font-bold text-black text-2xl">Blog</h1>
           </div>
-          {/*Add image button - redirects to add item page on click*/}
           <div className="pt-[1.5vh] pb-[1.5vh] col-span-1 place-self-end">
             <button
               type="button"
               className="p-[1.5vh] bg-black text-white rounded-md font-bold mr-[1.5vh]"
               onClick={() =>
-                router.push(`/dashboard/hobby/${hobby}/collections?url=add`)
+                router.push(`/dashboard/hobby/${hobby}/blog?url=add`)
               }
             >
-              Add Image
+              Add Post
             </button>
           </div>
         </div>
-        {/*Maps images and their titles to a div to display on the page*/}
-        {/*When an image is clicked, it will redirect to the respective individual image page*/}
         <div>
           <div className="grid grid-cols-4">
-            {imageURLs.map((url, index) => (
+            {blogContents.map((content, index) => (
               <div
-                key={index}
-                onClick={() => individualImageReroute(url)}
-                className="col-span-1 w-[15vw] h-[20vh] border-2 border-black rounded-md mt-[5vh] mb-[5vh] mr-[5vw] cursor-pointer"
+                key={blogIDs[index].toString()}
+                onClick={() =>
+                  individualBlogPostReroute(blogIDs[index].toString())
+                }
+                className="col-span-1 w-[15vw] h-[20vh] border-2 border-black rounded-md mt-[5vh] mb-[5vh] mr-[5vw]"
               >
-                <img src={url} className="w-full h-full rounded-sm"></img>
                 <div className="flex justify-center justify-items-center">
-                  <p className="font-semibold text-center">{titles[index]}</p>
+                  <p className="font-semibold text-center">
+                    {blogTitles[index]}
+                  </p>
+                </div>
+                <div>
+                  <p>{content}</p>
                 </div>
               </div>
             ))}

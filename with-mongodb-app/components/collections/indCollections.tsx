@@ -11,9 +11,9 @@ type componentProps = {
   hobby: string | undefined;
   indTitle: string;
   indDate: string;
-  indImage: string | null;
+  indImage: string;
   indDesc: string;
-  paramURL: string | null;
+  paramURL: string;
 };
 
 export default function IndCollections({
@@ -73,7 +73,7 @@ export default function IndCollections({
         <div>
           {/*Item image*/}
           <div className="w-1/2 h-1/2">
-            <img src={indImage!}></img>
+            <img src={indImage}></img>
           </div>
           {/*Item description*/}
           <div>
