@@ -18,7 +18,7 @@ export default function Collections({
   //Setup router to redirect users to proper pages
   const router = useRouter();
 
-  //Reoutes user to the individual collection page depending on the image they clicked on
+  //Reroutes user to the individual collection page depending on the image they clicked on
   async function individualImageReroute(url: string) {
     const shortURL = encodeURIComponent(url);
     router.push(`/dashboard/hobby/${hobby}/collections/?url=${shortURL}`);
