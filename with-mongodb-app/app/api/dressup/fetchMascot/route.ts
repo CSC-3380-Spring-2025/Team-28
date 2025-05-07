@@ -5,11 +5,12 @@ import { NextResponse } from "next/server";
 // Default items with layers
 const DEFAULT_ITEMS = [
   { filename: "wizard-hat.png", layer: "hat" },
-  { filename: "green-hoodie.png", layer: "shirt" },
-  { filename: "jeans.png", layer: "pants" },
+  { filename: "green-shirt.png", layer: "shirt" },
+  { filename: "red-shirt.png", layer: "shirt" },
+  { filename: "blue-jeans.png", layer: "pants" },
+  { filename: "khakis.png", layer: "pants" },
   { filename: "sunglasses.png", layer: "accessory" },
   { filename: "cowboy-hat.png", layer: "hat" },
-  { filename: "dragon-cape.png", layer: "accessory" }
 ];
 
 export async function GET() {

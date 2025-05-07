@@ -130,7 +130,7 @@ export default function DressupPage() {
 
 
         </div>
-        <p className="mt-4 text-lg font-medium">Your Mascot</p>
+        <p className="mt-4 text-lg font-medium">Mascot</p>
       </div>
 
       {/*inventory grid*/}
