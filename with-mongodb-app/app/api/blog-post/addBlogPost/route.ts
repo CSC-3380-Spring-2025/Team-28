@@ -4,6 +4,7 @@ import { NextResponse } from "next/server"
 
 export async function POST(request: { json: () => PromiseLike<{ title: any; content: any; hobby: any }> | { title: any; content: any; hobby: any } }){
     try{
+        //Connect to MongoDB
         await connectionToDatabase()
         const {title, content, hobby} = await request.json()
         const dateAdded = new Date()

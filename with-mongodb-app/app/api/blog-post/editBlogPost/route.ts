@@ -4,6 +4,7 @@ import { NextResponse } from "next/server"
 
 export async function POST(request: { json: () => PromiseLike<{ title: any; id: any; content: any }> | { title: any; id: any; content: any } }){
     try{
+        //Connect to MongoDB
         await connectionToDatabase()
         const {title, id, content} = await request.json()
         console.log(id)

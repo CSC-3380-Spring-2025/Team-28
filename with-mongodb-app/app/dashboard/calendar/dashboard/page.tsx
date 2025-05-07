@@ -18,7 +18,6 @@ export default function Dashboard() {
   }, [router]);
 
   //add event
-
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     let jsonData;
@@ -62,7 +61,7 @@ export default function Dashboard() {
 
   const [hobby, setHobby] = useState("");
   const [eventName, setEventName] = useState("");
-  const [day, setDay] = useState("");
+  const [day, setDay] = useState("01");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [startHour, setStartHour] = useState("");
@@ -112,7 +111,6 @@ export default function Dashboard() {
   ];
 
   const months = [
-    { label: "00", value: "00" },
     { label: "01", value: "01" },
     { label: "02", value: "02" },
     { label: "03", value: "03" },

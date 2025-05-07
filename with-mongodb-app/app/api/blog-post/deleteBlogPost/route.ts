@@ -4,6 +4,7 @@ import { NextResponse } from "next/server"
 
 export async function POST(request: { json: () => PromiseLike<{ id: any }> | { id: any } }){
     try{
+        //Connect to MongoDB
         await connectionToDatabase()
         const {id} = await request.json()
         await Blog.findByIdAndDelete({_id: id})
