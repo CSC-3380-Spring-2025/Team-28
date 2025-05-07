@@ -8,7 +8,7 @@ export async function GET(){
         //Connect to MongoDB
         await connectionToDatabase()
         //Find the document with the logged in user and return the tasks present
-        const tasks = await User.findOne({email: process.env.NEXT_PUBLIC_LOGGED_IN_USER}, {tasks: 1})
+        const tasks = await User.findOne({email: process.env.LOGGED_IN_USER}, {tasks: 1})
         //Return the tasks to be used on the dashboard page
         return NextResponse.json({error: "random images picked for user", status: 201, tasks: tasks.tasks})
     } catch(err) {

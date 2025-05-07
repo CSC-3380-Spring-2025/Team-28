@@ -13,7 +13,7 @@ export async function POST(request: { json: () => PromiseLike<{ hobby: any }> | 
         let title = []
         let _id = []
         //Retrieve all the images and titles for the corresponding user and hobby
-        const find = await Blog.find({email: process.env.NEXT_PUBLIC_LOGGED_IN_USER, hobby: hobby}, {content:1, title:1, _id:1})
+        const find = await Blog.find({email: process.env.LOGGED_IN_USER, hobby: hobby}, {content:1, title:1, _id:1})
         //Add all contents, ids, and titles to their respective arrays
         for(var i = 0; i < find.length; i++){
             content.push(find[i].content)

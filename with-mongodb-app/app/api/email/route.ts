@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 //This will fetch the data submitted in the email reminder form and save this in the logged in user's document
 export async function POST(request: { json: () => PromiseLike<{ recieveEmails: any; day: any; hour: any; min: any; message: any; }> | { recieveEmails: any; day: any; hour: any; min: any; message: any; }; }) {
   //Fetch the email of the logged in user 
-  const email = process.env.NEXT_PUBLIC_LOGGED_IN_USER!;
+  const email = process.env.LOGGED_IN_USER!;
   try {
     //Connect to MongoDB
     connectionToDatabase();

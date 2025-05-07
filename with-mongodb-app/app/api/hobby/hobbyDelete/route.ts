@@ -10,7 +10,7 @@ export async function POST(request: { json: () => PromiseLike<{ hobby: String}> 
         //Fetch submitted hobby from hobby editor page
         const {hobby} = await request.json()
         //Find the correct user document
-        const user = await User.findOne({email: process.env.NEXT_PUBLIC_LOGGED_IN_USER})
+        const user = await User.findOne({email: process.env.LOGGED_IN_USER})
         //If user has no hobbies, return message saying nothing to delete
         if (user.hobbies.length <= 0){
             return NextResponse.json({message: "no hobbies to delete", status: 201})

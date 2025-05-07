@@ -13,7 +13,7 @@ export async function POST(request: { json: () => PromiseLike<{ title: any; cont
         //Get today's date
         const dateAdded = new Date()
         //Get the email of the user that is currently logged in
-        const email = process.env.NEXT_PUBLIC_LOGGED_IN_USER
+        const email = process.env.LOGGED_IN_USER
         //Creates new document based on collection schema
         const newBlogPost = new Blog({ 
             date: dateAdded,

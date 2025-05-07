@@ -29,6 +29,7 @@ export default function Login() {
     const response = await axios.post("/api/login", { email, password });
     //If the api returns a 201 status, that means the email and password have confirmed to be correct
     if (response.data.status == 201) {
+      process.env.LOGGED_IN_USER = email
       //Allow user to proceed to the dashboard page (redirect them to there)
       router.push("/dashboard");
     }

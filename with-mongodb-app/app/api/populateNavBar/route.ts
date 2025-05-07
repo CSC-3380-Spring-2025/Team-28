@@ -14,7 +14,7 @@ export async function GET() {
         //Connect to MongoDB
         connectionToDatabase()
         //Find the data of the logged in user
-        const userInfo = await User.findOne({email: process.env.NEXT_PUBLIC_LOGGED_IN_USER})
+        const userInfo = await User.findOne({email: process.env.LOGGED_IN_USER})
         //Create paths for the first hobby of the user if it exists
         if(userInfo.hobbies.length >= 1){
             //Creates path for a blog page for this hobby if path was created by user

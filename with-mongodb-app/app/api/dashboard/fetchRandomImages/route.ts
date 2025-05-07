@@ -8,12 +8,12 @@ export async function GET(){
         //Connect to MongoDB
         await connectionToDatabase()
         //Find the email to 
-        const colExist = await Collection.findOne({email: process.env.NEXT_PUBLIC_LOGGED_IN_USER})
+        const colExist = await Collection.findOne({email: process.env.LOGGED_IN_USER})
         //Establish a variable to store fetched images
         let fetchRandCol
         //Make sure the user exists, then get three random images from collections that are associated with the logged in user
         if(colExist){
-            fetchRandCol = await Collection.aggregate([{ $match: { email: process.env.NEXT_PUBLIC_LOGGED_IN_USER } },
+            fetchRandCol = await Collection.aggregate([{ $match: { email: process.env.LOGGED_IN_USER } },
                 { $sample: { size: 3 } }])
         }
         //Return the random image data to be used on the dashboard page

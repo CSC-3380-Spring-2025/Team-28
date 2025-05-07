@@ -25,7 +25,7 @@ export async function POST(request: { json: () => PromiseLike<{ name: any; email
             return NextResponse.json({message: "wrong pass", status: 404})
         }
         else{
-            process.env.NEXT_PUBLIC_LOGGED_IN_USER = email
+            process.env.LOGGED_IN_USER = email
             return NextResponse.json({message: "user logged in", status: 201})
         }
     } catch(err){

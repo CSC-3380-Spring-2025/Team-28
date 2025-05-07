@@ -10,7 +10,7 @@ export async function POST(request: { json: () => PromiseLike<{ hobby: String}> 
         //Fetch submitted hobby from hobby editor page
         const {hobby} = await request.json()
         //Find the correct user document
-        const user = await User.findOne({email: process.env.NEXT_PUBLIC_LOGGED_IN_USER})
+        const user = await User.findOne({email: process.env.LOGGED_IN_USER})
         //If user already has the max amount of hobbies, prevent the user from adding anymore
         if (user.hobbies.length >= 3){
             return NextResponse.json({message: "max hobbies added", status: 201})
@@ -22,7 +22,7 @@ export async function POST(request: { json: () => PromiseLike<{ hobby: String}> 
         //Otherwise, allow the hobby to be added to the user's hobbies array...
         //...and return a message showing this operation was a success
         else{
-            await User.findOneAndUpdate({email: process.env.NEXT_PUBLIC_LOGGED_IN_USER}, {$push: { hobbies: hobby }})
+            await User.findOneAndUpdate({email: process.env.LOGGED_IN_USER}, {$push: { hobbies: hobby }})
             return NextResponse.json({message: "hobby added", status: 201})
         }
     } catch(err) {

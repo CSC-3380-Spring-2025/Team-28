@@ -38,7 +38,7 @@ export default function Dashboard() {
   //Fetch data to display on dashboard on initial dashboard load
   const initPage = async () => {
     //Fetch and set three random images from the user's Collections tracker to display in the carousel
-    const response = await axios.get("/api/dashboard/fetchRandomImages");
+    const response = await axios.get("/api/dashboard/fetchRandomImages", );
     setCarouselImages(response.data.images);
     //Fetch and set any tasks the user had previously set
     const response2 = await axios.get("/api/dashboard/taskFetch");
@@ -56,7 +56,7 @@ export default function Dashboard() {
         //Tasks array will be updated in database...
           await axios.post("/api/dashboard/taskAdd", {
             task,
-            email: process.env.NEXT_PUBLIC_LOGGED_IN_USER,
+            email: process.env.LOGGED_IN_USER,
           })
         //...and the new task will be reflected on the client side as well
         setTasks((tasks) => [...tasks, task]);
@@ -74,7 +74,7 @@ export default function Dashboard() {
   //It takes an input of task
   async function deleteToDo(task: any) {
     //Updates the user's tasks array to reflect the deleted task...
-    await axios.post("/api/dashboard/taskDelete", { task, email: process.env.NEXT_PUBLIC_LOGGED_IN_USER })
+    await axios.post("/api/dashboard/taskDelete", { task, email: process.env.LOGGED_IN_USER })
     //...as well as update the client side to show this change
     setTasks(tasks => tasks.filter(validTask => validTask !== task))
   }

@@ -49,7 +49,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const data = {
     user: {
       name: "Welcome, " + name,
-      email: process.env.NEXT_PUBLIC_LOGGED_IN_USER!,
+      email: process.env.LOGGED_IN_USER!,
       avatar: "/avatars/shadcn.jpg",
     },
     navMain: [

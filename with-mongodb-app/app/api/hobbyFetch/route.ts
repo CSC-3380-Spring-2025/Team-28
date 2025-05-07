@@ -8,7 +8,7 @@ export async function GET(){
         //Connect to MongoDB
         await connectionToDatabase()
         //Find the correct user document and get the corresponding hobbies array
-        const hobbies = await User.findOne({email: process.env.NEXT_PUBLIC_LOGGED_IN_USER}, {hobbies: 1})
+        const hobbies = await User.findOne({email: process.env.LOGGED_IN_USER}, {hobbies: 1})
         //Return the hobbies associated with the user
         return NextResponse.json({message: "hobby added", status: 201, hobbies: hobbies})
     } catch(err) {

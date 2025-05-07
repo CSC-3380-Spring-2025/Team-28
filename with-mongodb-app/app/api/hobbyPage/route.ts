@@ -10,7 +10,7 @@ export async function POST(request: { json: () => PromiseLike<{ hobby: string; t
         //Fetch the hobby and tracker from the parameters in the url
         const {hobby, tracker} = await request.json()
         //Find the document of the logged in user in the user collection
-        const user = await User.findOne({email: process.env.NEXT_PUBLIC_LOGGED_IN_USER})
+        const user = await User.findOne({email: process.env.LOGGED_IN_USER})
         //If the path exists in the user's pages array, give back the hobby and tracker
         if(user.pages.includes(hobby +"/"+ tracker)){
             return NextResponse.json({message: "path exists", status: 201, hobby: hobby, tracker: tracker})
