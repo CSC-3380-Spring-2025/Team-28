@@ -2,8 +2,8 @@
 
 import { useRouter } from "next/navigation";
 
-//This is the component that will display the main Collections tracker page with all the user's items they added
-//Accept hobby, imageURLs, and titles arguments from the hobby page that displays hobby trackers
+//This is the component that will display the main Blog tracker page with all the user's items they added
+//Accept hobby, contents, blog ids, and titles arguments from the hobby page that displays hobby trackers
 type componentProps = {
   hobby: string | undefined;
   blogContents: string[];
@@ -20,7 +20,7 @@ export default function Blog({
   //Setup router to redirect users to proper pages
   const router = useRouter();
 
-  //Reoutes user to the individual collection page depending on the image they clicked on
+  //Reroutes user to the individual blog page depending on the post they clicked on
   async function individualBlogPostReroute(id: string) {
     router.push(
       `/dashboard/hobby/${hobby}/blog/?url=${encodeURIComponent(id)}`
@@ -31,9 +31,11 @@ export default function Blog({
     <>
       <div className="px-10 max-w-full">
         <div className="grid grid-cols-2">
+          {/*Title of page*/}
           <div className="pt-[1.5vh] pb-[1.5vh] col-span-1 place-self-start">
             <h1 className="font-bold text-black text-2xl">Blog</h1>
           </div>
+          {/*Add post button - redirects to add item page on click*/}
           <div className="pt-[1.5vh] pb-[1.5vh] col-span-1 place-self-end">
             <button
               type="button"
@@ -46,6 +48,8 @@ export default function Blog({
             </button>
           </div>
         </div>
+        {/*Maps post titles and contents to a div to display on the page*/}
+        {/*When a post is clicked, it will redirect to the respective individual blog page*/}
         <div>
           <div className="grid grid-cols-4">
             {blogContents.map((content, index) => (
@@ -61,8 +65,10 @@ export default function Blog({
                     {blogTitles[index]}
                   </p>
                 </div>
-                <div>
-                  <p>{content}</p>
+                <div className="flex justify-center justify-items-center">
+                  <p className="font-normal text-center text-black truncate">
+                    {content}
+                  </p>
                 </div>
               </div>
             ))}
