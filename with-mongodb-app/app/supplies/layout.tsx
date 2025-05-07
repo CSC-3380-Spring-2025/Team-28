@@ -8,8 +8,6 @@ import {
 } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
   title: "Hobby Tracker - Supplies",
   description: "Supply Tracker",
@@ -21,16 +19,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html>
-      <body>
+    <div>
       <SidebarProvider>
         <AppSidebar />
         <SidebarTrigger className="-ml-1 rounded-none" />
-          <SidebarInset>
-            {children}
-          </SidebarInset>
+        <SidebarInset>{children}</SidebarInset>
       </SidebarProvider>
-      </body>
-    </html>
+    </div>
   );
 }
