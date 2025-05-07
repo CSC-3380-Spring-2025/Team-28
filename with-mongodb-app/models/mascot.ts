@@ -1,11 +1,16 @@
 import mongoose, { Schema, Document, models, model } from "mongoose";
 
+interface InventoryItem {
+  filename: string;
+  layer: string;
+}
+
 export interface IMascot extends Document {
   userId: string;
   equipped: {
     [key: string]: string;
   };
-  inventory: string[];
+  inventory: InventoryItem[]; //inventory being an array should fix the type error I had
 }
 
 const mascotSchema = new Schema<IMascot>(
@@ -20,7 +25,12 @@ const mascotSchema = new Schema<IMascot>(
       default: {},
     },
     inventory: {
-      type: [String],
+      type: [
+        {
+          filename: { type: String, required: true },
+          layer: { type: String, required: true },
+        },
+      ],
       default: [],
     },
   },

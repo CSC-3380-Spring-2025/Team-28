@@ -2,13 +2,14 @@ import connectionToDatabase from "@/lib/mongoose";
 import { Mascot } from "@/models/mascot";
 import { NextResponse } from "next/server";
 
+// Default items with layers
 const DEFAULT_ITEMS = [
-  "wizard-hat.png",
-  "green-hoodie.png",
-  "jeans.png",
-  "sunglasses.png",
-  "cowboy-hat.png",
-  "dragon-cape.png"
+  { filename: "wizard-hat.png", layer: "hat" },
+  { filename: "green-hoodie.png", layer: "shirt" },
+  { filename: "jeans.png", layer: "pants" },
+  { filename: "sunglasses.png", layer: "accessory" },
+  { filename: "cowboy-hat.png", layer: "hat" },
+  { filename: "dragon-cape.png", layer: "accessory" }
 ];
 
 export async function GET() {
@@ -22,15 +23,23 @@ export async function GET() {
     if (!mascot) {
       mascot = await Mascot.create({
         userId,
-        equipped: {}, //be default we equip nothing
+        equipped: {}, //by default nothing is equipped
         inventory: DEFAULT_ITEMS,
       });
     } else {
-      DEFAULT_ITEMS.forEach((item) => {
-        if (!mascot.inventory.includes(item)) {
-          mascot.inventory.push(item);
+      mascot.inventory = mascot.inventory
+        .filter((item: { filename: any; layer: any; }) => item && item.filename && item.layer) //this fixes things equipped from testing
+        .map((item: { filename: any; layer: any; }) => ({
+          filename: item.filename,
+          layer: item.layer
+        }));
+
+      DEFAULT_ITEMS.forEach((defaultItem) => {
+        if (!mascot.inventory.some((item: { filename: string; }) => item.filename === defaultItem.filename)) {
+          mascot.inventory.push(defaultItem);
         }
       });
+
       await mascot.save();
     }
 

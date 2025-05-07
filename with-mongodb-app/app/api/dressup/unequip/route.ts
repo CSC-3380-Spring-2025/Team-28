@@ -8,11 +8,11 @@ export async function POST(request: Request) {
 
     //temp
     const userId = "fake1234";
-    const { layer, item } = await request.json();
+    const { layer } = await request.json();
 
-    if (!layer || !item) {
+    if (!layer) {
       return NextResponse.json(
-        { error: "Layer and item are required." },
+        { error: "Layer is required to unequip." },
         { status: 400 }
       );
     }
@@ -26,15 +26,15 @@ export async function POST(request: Request) {
       );
     }
 
-    mascot.equipped[layer] = item;
+    delete mascot.equipped[layer];
     await mascot.save();
 
     return NextResponse.json({
-      message: "Item equipped successfully.",
+      message: "Item unequipped successfully.",
       equipped: mascot.equipped,
     });
   } catch (error) {
-    console.error("Error equipping item:", error);
+    console.error("Error unequipping item:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
