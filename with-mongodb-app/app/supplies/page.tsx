@@ -3,25 +3,30 @@
 import React, { useRef } from "react";
 import { ActiveTable } from "active-table-react";
 import axios from "axios";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { table } from "console";
 
 type ActiveTableComp = typeof ActiveTable;
 
 export default function Supplies() {
-  const tableRef = useRef<React.ElementRef<ActiveTableComp>>(null);
-  const [tableArray, setArray] = useState();
 
+  //acts as a reference to the table array for other functions to easily get data from it
+  const tableRef = useRef<React.ElementRef<ActiveTableComp>>(null);
+
+  //wanted to use this to allow automatic syncing with the database 
+  // but I just had issues and could never get it to work, but this just gets the state of the table array and saves the value
+  let [tableArray, setArray] = useState();
+
+  //Tried to integrate with the database but had issues, depricated basically
   const handleSubmit = async () => {
     const tableArray = tableRef.current?.getData();
-    console.log(tableArray)
+    console.log(tableArray);
     const response = await axios.post("/api/supplies", {
       tableArray,
     });
     console.log(response);
   };
 
+  //This automatically updates the table for
   const updateTable = () => {
     const tableArray = tableRef.current?.getData();
     const tableLength = tableArray?.length;
@@ -30,7 +35,6 @@ export default function Supplies() {
         const cost = parseFloat(String(tableArray[index][1]));
         const amount = parseFloat(String(tableArray[index][2]));
         const total = (cost * amount).toString();
-
         tableRef.current?.updateCell({
           rowIndex: index,
           columnIndex: 3,
@@ -40,6 +44,7 @@ export default function Supplies() {
     }
   };
 
+  //It is just loading a default table right now, the first row is a header while the rest are sports for actual info
   const loadTable = () => {
     tableRef.current?.updateData([
       ["Supply Name", "Cost per Unit", "Amount", "Total"],
@@ -54,8 +59,6 @@ export default function Supplies() {
       ["", "", "", ""],
       ["", "", "", ""],
     ]);
-
-    console.log(tableArray);
     return;
   };
 
@@ -63,19 +66,18 @@ export default function Supplies() {
     <>
       <div className="p-8">
         <h1 className="p-8 font-bold text-7xl mb-9">Supplies</h1>
-        <button
-          onClick={handleSubmit}
-          className="px-2 py-2 bg-black text-white rounded"
-        >
-          Save
-        </button>
         <div className="grid-flow-col grid-rows-3 gap-4 flex">
           <div className="p-8">
+            {/* this is table for the supplies page */}
             <ActiveTable
+            // this is the settings for the files button
+              files={{ buttons: [{ import: true }, { export: true }] }}
+              // settings for how pages work for the table
               pagination={{
                 rowsPerPage: 10,
                 rowsPerPageSelect: false,
               }}
+              // This makes it so that the Total column is not editable by the user and will only be updated when the total is being calculated
               customColumnsSettings={[
                 {
                   headerName: "Total",
@@ -83,10 +85,15 @@ export default function Supplies() {
                   isCellTextEditable: false,
                 },
               ]}
+              //For the user there are only 30 useable rows, but the reason it is 31 is for the header
               maxRows={31}
+              //using onRender I am loading a default table, but wanted to use it to load a table from the database
               onRender={loadTable}
+              //this is updates the Total section of the table whenever any cell is updated
               onCellUpdate={updateTable}
+              //basically depricated, tried usining this to save the table until I wanted to upload it to the database
               onDataUpdate={(e) => setArray}
+              //reference for the table
               ref={tableRef}
               isHeaderTextEditable={false}
               displayAddNewColumn={false}
@@ -105,16 +112,6 @@ export default function Supplies() {
               }}
               data={[["Supply Name", "Cost per Unit", "Amount", "Total"]]}
             />
-          </div>
-          <div>
-            <div className="border-4 border-black rounded-md text-black col-span-2 mb-1">
-              <h2 className="bg-black text-white">Supply Alert</h2>
-              <div>Temp</div>
-            </div>
-            <div className="border-4 border-black rounded-md text-black col-span-2 row-span-2 mt-2 mb-1">
-              <h2 className="bg-black text-white">Financial Chart</h2>
-              <div>Temp</div>
-            </div>
           </div>
         </div>
       </div>
