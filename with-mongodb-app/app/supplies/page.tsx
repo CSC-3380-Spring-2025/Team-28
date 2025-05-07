@@ -2,13 +2,27 @@
 
 import React, { useRef } from "react";
 import { ActiveTable } from "active-table-react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { table } from "console";
 
 type ActiveTableComp = typeof ActiveTable;
 
 export default function Supplies() {
   const tableRef = useRef<React.ElementRef<ActiveTableComp>>(null);
+  const [tableArray, setArray] = useState();
 
-  const calTotal = () => {
+  const handleSubmit = async () => {
+    const tableArray = tableRef.current?.getData();
+    console.log(tableArray)
+    const response = await axios.post("/api/supplies", {
+      tableArray,
+    });
+    console.log(response);
+  };
+
+  const updateTable = () => {
     const tableArray = tableRef.current?.getData();
     const tableLength = tableArray?.length;
     if (tableLength != undefined && tableArray != undefined) {
@@ -26,48 +40,53 @@ export default function Supplies() {
     }
   };
 
-  const saveTable = () => {
-    const tableArray = tableRef.current?.getData();
-    if (tableArray != undefined) {
-      console.log(tableArray);
-    }
-  };
-
-  function loadTable(): void {
+  const loadTable = () => {
     tableRef.current?.updateData([
       ["Supply Name", "Cost per Unit", "Amount", "Total"],
-      ["", "4", "5", "12"],
+      ["", "", "", ""],
+      ["", "", "", ""],
+      ["", "", "", ""],
+      ["", "", "", ""],
+      ["", "", "", ""],
+      ["", "", "", ""],
+      ["", "", "", ""],
+      ["", "", "", ""],
+      ["", "", "", ""],
+      ["", "", "", ""],
     ]);
-    return 
-  }
+
+    console.log(tableArray);
+    return;
+  };
 
   return (
     <>
       <div className="p-8">
         <h1 className="p-8 font-bold text-7xl mb-9">Supplies</h1>
         <button
-          onClick={calTotal}
+          onClick={handleSubmit}
           className="px-2 py-2 bg-black text-white rounded"
         >
-          Recalculate Total Cost
-        </button>
-        <button
-          onClick={saveTable}
-          className="px-2 py-2 bg-black text-white rounded"
-        >
-          Save Table
+          Save
         </button>
         <div className="grid-flow-col grid-rows-3 gap-4 flex">
           <div className="p-8">
             <ActiveTable
+              pagination={{
+                rowsPerPage: 10,
+                rowsPerPageSelect: false,
+              }}
               customColumnsSettings={[
                 {
                   headerName: "Total",
-                  defaultText: "N/A",
+                  defaultText: "NaN",
                   isCellTextEditable: false,
                 },
               ]}
+              maxRows={31}
               onRender={loadTable}
+              onCellUpdate={updateTable}
+              onDataUpdate={(e) => setArray}
               ref={tableRef}
               isHeaderTextEditable={false}
               displayAddNewColumn={false}
