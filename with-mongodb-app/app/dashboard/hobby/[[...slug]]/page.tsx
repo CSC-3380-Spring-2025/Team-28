@@ -553,8 +553,10 @@ export default function HobbyPage() {
                           {blogTitles[index]}
                         </p>
                       </div>
-                      <div>
-                        <p>{content}</p>
+                      <div className="flex justify-center justify-items-center">
+                        <p className="font-normal text-center text-black truncate">
+                          {content}
+                        </p>
                       </div>
                     </div>
                   ))}

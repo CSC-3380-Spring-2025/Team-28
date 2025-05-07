@@ -1,5 +1,4 @@
 import connectionToDatabase from "@/lib/mongoose"
-import Hobby from "@/models/hobby"
 import User from "@/models/user"
 import { NextResponse } from "next/server"
 
@@ -16,14 +15,6 @@ export async function POST(request: { json: () => PromiseLike<{ hobby: string; t
             console.log("tracker page does not exist")
             return NextResponse.json({error: "path does not exist", status: 404})
         }
-        /*const pathExistance = await Hobby.findOne({hobby,tracker})
-        if(!pathExistance){
-            console.log("path does not exist")
-            return NextResponse.json({error: "path does not exist", status: 404})
-        }*/
-
-        //console.log("path does exist")
-        //return NextResponse.json({message: "path exists", status: 201})
     } catch(err) {
         console.log(err)
     }
