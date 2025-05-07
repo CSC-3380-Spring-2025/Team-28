@@ -88,7 +88,7 @@ export default function Dashboard() {
   return (
     <>
       <div className="px-10">
-        {/*Page yitle*/}
+        {/*Page title*/}
         <div className="pt-[1.5vh] pb-[1.5vh]">
           <h1 className="font-bold text-2xl">Dashboard</h1>
         </div>
