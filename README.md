@@ -1,10 +1,10 @@
 # [Hobby Tracker] : [Team 28]
 # Members
-Project Manager: [Nora Pray] (ny0o0om)
-Communications Lead: [Khalil El-abbassi] (KhalilE792)
-Git Master: [Joshua Harris] (Joshua4978)
-Design Lead: [Helena Schuler] (hschuler13)
-Quality Assurance Tester: [Lynn Casper] (Tcasperv)
+- Project Manager: [Nora Pray] (ny0o0om)
+- Communications Lead: [Khalil El-abbassi] (KhalilE792)
+- Git Master: [Joshua Harris] (Joshua4978)
+- Design Lead: [Helena Schuler] (hschuler13)
+- Quality Assurance Tester: [Lynn Casper] (Tcasperv)
 
 # About Our Software
 
