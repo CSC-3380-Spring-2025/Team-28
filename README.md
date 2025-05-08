@@ -4,19 +4,21 @@ Project Manager: [Nora Pray] ([ny0o0om])\
 Communications Lead: [Khalil El-abbassi] ([KhalilE792])\
 Git Master: [Joshua Harris] ([Joshua4978])\
 Design Lead: [Helena Schuler] ([hschuler13])\
-Quality Assurance Tester: [Lynn Casper] ([Tcasperv])
+Quality Assurance Tester: [Lynn Casper] ([Tcasperv])\
 
 # About Our Software
 
-Hobby Tracker is a web-app to help encourage users to pursue and develop new hobbies while also helping them be consistent with their current hobbies. It boasts  
+Hobby Tracker is a web-app to help encourage users to pursue and develop new hobbies while also helping them be consistent with their current hobbies. There are three main features of the app:
+1) Mascot dressup: A mascot is present to give users a fun encouragement. The mascot can be dressed up and customized to the user's liking.
+2) Time management tools: There is a pomodoro timer to manage time and give proper breaks in between hobby sessions, a page that adds events to a user's Google Calendar to remind user's of their hobby, and email reminders
+to remind users weekly.
+3) Hobby tracker pages: There are three available tracker page types: blog (posts of ), collections (), and 
+
 ## Platforms Tested on
 - MacOS
-- Android
-- iOS
-- Linux
 - Windows
 # Important Links
-Kanban Board: discord bot [https://github.com/j4asper/KanbanCord] \
+Kanban Board: [https://github.com/CSC-3380-Spring-2025/Team-28/issues] \
 Designs: [https://www.figma.com/files/project/336795602] \
 Styles Guide(s): [link]
 
@@ -32,24 +34,9 @@ Describe where to download the dependencies here. Some will likely require a web
 Describe how the commands and process to launch the project on the main branch in such a way that anyone working on the project knows how to check the affects of any code they add.
 
 ```sh
-Example terminal command syntax
+cd terminal command syntax
 ```
 
 It is very common in these sections to see code in peculiar boxes to help them stand out. Check the markdown section of the Project Specifications to see how to add more / customize these.
 
-```python
-def code_highlight_example(m: int, m: float, s: str) -> str:
-	return s + str(n*m)
-```
-
-```java
-public static void main(String[] args){
-	System.out.println("Hello, World!");
-}
-```
-
-```c#
-static void Main(){
-	Console.WriteLine("Hello, World!");
-}
-```
+## Running the actual project
