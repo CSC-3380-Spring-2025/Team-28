@@ -27,7 +27,7 @@ export async function GET() {
             }
             //Creates path for a supplies page for this hobby if path was created by user
             if(userInfo.pages.includes(userInfo.hobbies[0] + "/supplies")){
-                pages1[2] = "/dashboard/hobby/" + userInfo.hobbies[0] + "/supplies"
+                pages1[2] = "/supplies"
             }
         }
         //Create paths for the second hobby of the user if it exists
@@ -42,7 +42,7 @@ export async function GET() {
             }
             //Creates path for a supplies page for this hobby if path was created by user
             if(userInfo.pages.includes(userInfo.hobbies[1] + "/supplies")){
-                pages2[2] = "/dashboard/hobby/" + userInfo.hobbies[1] + "/supplies"
+                pages2[2] = "/supplies"
             }
         }
         //Create paths for the third hobby of the user if it exists
@@ -57,7 +57,7 @@ export async function GET() {
             }
             //Creates path for a supplies page for this hobby if path was created by user
             if(userInfo.pages.includes(userInfo.hobbies[2] + "/supplies")){
-                pages3[2] = "/dashboard/hobby/" + userInfo.hobbies[2] + "/supplies"
+                pages3[2] = "/supplies"
             }
         }
         //Return the newly created paths to be used in the navbar

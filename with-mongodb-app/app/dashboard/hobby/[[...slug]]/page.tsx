@@ -223,6 +223,8 @@ export default function HobbyPage() {
     } 
     //If the second parameter is the word supplies...
     else if (tracker === "supplies") {
+      //...return supplies page
+      
     }
   } else {
     return (
