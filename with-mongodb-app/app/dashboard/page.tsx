@@ -185,7 +185,7 @@ export default function Dashboard() {
                 <div className="pb-[1vh]">
                   <Button
                     className="rounded-full w-3/5 justify-stretch"
-                    onClick={() => router.push("/dashboard/dressup")}
+                    onClick={() => router.push("/dressup")}
                   >
                     <User></User>
                     Mascot
@@ -237,7 +237,7 @@ export default function Dashboard() {
           {/*Display user's customized mascot*/}
           {/*Will go to mascot editor on click*/}
           <div>
-            <Link href="/dashboard/dressup">
+            <Link href="/dressup">
               <Card className="h-[45vh]">
                 <CardContent>
                   <div className="h-[45vh] relative">
