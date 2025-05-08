@@ -96,13 +96,11 @@ export default function Dashboard() {
   };
   //These constants are used to display the options for a user to pick from on a dropdown box
   //This one is populated with the hobbies recieved from user's document in the User collection
-
-  //BUG NOTICE: There is still a bug where you have to make a selection on all the dropdowns
-  //Otherwise, the input will not be accepted by Google Calendar to create an event
   const hobbies: any[] = [];
   for(let i = 0; i < userHobbies.length; i++){
     hobbies.push({label: userHobbies[i], value:userHobbies[i]})
   }
+  //NOTICE: You have to make a selection on all the dropdowns. It will not accept default values. Otherwise, the input will not be accepted by Google Calendar
   
   //Pick a day from the 1st to the 30th
   const days = [

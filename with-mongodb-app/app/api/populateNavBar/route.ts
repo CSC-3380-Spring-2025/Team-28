@@ -19,45 +19,45 @@ export async function GET() {
         if(userInfo.hobbies.length >= 1){
             //Creates path for a blog page for this hobby if path was created by user
             if(userInfo.pages.includes(userInfo.hobbies[0] + "/blog")){
-                pages1[0] = "hobby/" + userInfo.hobbies[0] + "/blog"
+                pages1[0] = "/dashboard/hobby/" + userInfo.hobbies[0] + "/blog"
             }
             //Creates path for a collections page for this hobby if path was created by user
             if(userInfo.pages.includes(userInfo.hobbies[0] + "/collections")){
-                pages1[1] = "hobby/" + userInfo.hobbies[0] + "/collections"
+                pages1[1] = "/dashboard/hobby/" + userInfo.hobbies[0] + "/collections"
             }
             //Creates path for a supplies page for this hobby if path was created by user
             if(userInfo.pages.includes(userInfo.hobbies[0] + "/supplies")){
-                pages1[2] = "hobby/" + userInfo.hobbies[0] + "/supplies"
+                pages1[2] = "/dashboard/hobby/" + userInfo.hobbies[0] + "/supplies"
             }
         }
         //Create paths for the second hobby of the user if it exists
         if(userInfo.hobbies.length >= 2){
             //Creates path for a blog page for this hobby if path was created by user
             if(userInfo.pages.includes(userInfo.hobbies[1] + "/blog")){
-                pages2[0] = "hobby/" + userInfo.hobbies[1] + "/blog"
+                pages2[0] = "/dashboard/hobby/" + userInfo.hobbies[1] + "/blog"
             }
             //Creates path for a collections page for this hobby if path was created by user
             if(userInfo.pages.includes(userInfo.hobbies[1] + "/collections")){
-                pages2[1] = "hobby/" + userInfo.hobbies[1] + "/collections"
+                pages2[1] = "/dashboard/hobby/" + userInfo.hobbies[1] + "/collections"
             }
             //Creates path for a supplies page for this hobby if path was created by user
             if(userInfo.pages.includes(userInfo.hobbies[1] + "/supplies")){
-                pages2[2] = "hobby/" + userInfo.hobbies[1] + "/supplies"
+                pages2[2] = "/dashboard/hobby/" + userInfo.hobbies[1] + "/supplies"
             }
         }
         //Create paths for the third hobby of the user if it exists
         if(userInfo.hobbies.length >= 3){
             //Creates path for a blog page for this hobby if path was created by user
             if(userInfo.pages.includes(userInfo.hobbies[2] + "/blog")){
-                pages3[0] = "hobby/" + userInfo.hobbies[2] + "/blog"
+                pages3[0] = "/dashboard/hobby/" + userInfo.hobbies[2] + "/blog"
             }
             //Creates path for a collections page for this hobby if path was created by user
             if(userInfo.pages.includes(userInfo.hobbies[2] + "/collections")){
-                pages3[1] = "hobby/" + userInfo.hobbies[2] + "/collections"
+                pages3[1] = "/dashboard/hobby/" + userInfo.hobbies[2] + "/collections"
             }
             //Creates path for a supplies page for this hobby if path was created by user
             if(userInfo.pages.includes(userInfo.hobbies[2] + "/supplies")){
-                pages3[2] = "hobby/" + userInfo.hobbies[2] + "/supplies"
+                pages3[2] = "/dashboard/hobby/" + userInfo.hobbies[2] + "/supplies"
             }
         }
         //Return the newly created paths to be used in the navbar

@@ -87,6 +87,8 @@ export default function Email() {
       message,
     });
   };
+
+    //NOTICE: You have to make a selection on all the dropdowns. It will not accept default values. Otherwise, the input will not be accepted by the database
   return (
     <>
       <div className="px-10">

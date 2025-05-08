@@ -61,13 +61,15 @@ export default function hobbyEditor(){
         {/*Section to add hobbies*/}
         <div className="grid grid-cols-3 gap-4 relative w-full max-w-full items-start">
           <h3 className="font-bold text-md pb-[1vh] col-span-3">Hobbies</h3>
-          <form>
+          <form className="flex flex-col">
             {/*User input for desired hobby to add*/}
-            <input type="text" placeholder="enter hobby" onChange={(e) => setHobby(e.target.value)}></input>
-            {/*Add button - on click, will add the inputed hobby*/}
-            <button type="submit" onClick={handleHobbyAdd}>Add</button>
-            {/*Add button - on click, will delete the inputed hobby*/}
-            <button type="submit" onClick={handleHobbyDelete}>Delete</button>
+            <input type="text" placeholder="enter hobby" className="border-black border-2 border-solid rounded-sm p-[0.5vh] bg-gray-200 mb-[1vh]" onChange={(e) => setHobby(e.target.value)}></input>
+            <div className="flex">
+              {/*Add button - on click, will add the inputed hobby*/}
+              <button type="submit" onClick={handleHobbyAdd} className="p-[1.5vh] bg-black text-white rounded-md font-bold mr-[1.5vh]">Add</button>
+              {/*Add button - on click, will delete the inputed hobby*/}
+              <button type="submit" onClick={handleHobbyDelete} className="p-[1.5vh] bg-black text-white rounded-md font-bold mr-[1.5vh]">Delete</button>
+            </div>
           </form>
         </div>
         {/*Section to add tracker pages*/}
@@ -75,15 +77,17 @@ export default function hobbyEditor(){
           <h3 className="font-bold text-md pb-[1vh] col-span-3">
             Pages
           </h3>
-          <form>
+          <form className="flex flex-col">
             {/*User input for hobby to add a tracker page path to*/}
-            <input type="text" placeholder="enter hobby" onChange={(e) => setHobby(e.target.value)}></input>
+            <input type="text" placeholder="enter hobby" className="border-black border-2 border-solid rounded-sm p-[0.5vh] bg-gray-200 mb-[1vh]" onChange={(e) => setHobby(e.target.value)}></input>
             {/*User input for tracker type to add*/}
-            <input type="text" placeholder="enter tracker type" onChange={(e) => setTracker(e.target.value)}></input>
-            {/*Add button - on click, will add the path to the tracker page based on input*/}
-            <button type="submit" onClick={handlePageAdd}>Add</button>
-            {/*Delete button - on click, will delete the path to the tracker page based on input*/}
-            <button type="submit" onClick={handlePageDelete}>Delete</button>
+            <input type="text" placeholder="enter tracker type" className="border-black border-2 border-solid rounded-sm p-[0.5vh] bg-gray-200 mb-[1vh]" onChange={(e) => setTracker(e.target.value)}></input>
+            <div className="flex">
+              {/*Add button - on click, will add the path to the tracker page based on input*/}
+              <button type="submit" onClick={handlePageAdd} className="p-[1.5vh] bg-black text-white rounded-md font-bold mr-[1.5vh]">Add</button>
+              {/*Delete button - on click, will delete the path to the tracker page based on input*/}
+              <button type="submit" onClick={handlePageDelete} className="p-[1.5vh] bg-black text-white rounded-md font-bold mr-[1.5vh]">Delete</button>
+            </div>
           </form>
         </div>
       </div>
