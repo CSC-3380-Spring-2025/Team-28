@@ -20,7 +20,7 @@ to remind users weekly.
 # Important Links
 Kanban Board: [https://github.com/CSC-3380-Spring-2025/Team-28/issues] \
 Designs: [https://www.figma.com/files/project/336795602] \
-Styles Guide(s): [link]
+Styles Guide(s): [https://drive.google.com/file/d/1ABqHBj43B3vap2-06WOuVx5YNlzSm1pI/view?usp=sharing]
 
 # How to Run Dev and Test Environment
 
