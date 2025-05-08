@@ -38,7 +38,7 @@ export default function Dashboard() {
   //Fetch data to display on dashboard on initial dashboard load
   const initPage = async () => {
     //Fetch and set three random images from the user's Collections tracker to display in the carousel
-    const response = await axios.get("/api/dashboard/fetchRandomImages");
+    const response = await axios.post("/api/dashboard/fetchRandomImages", {email: process.env.LOGGED_IN_USER});
     setCarouselImages(response.data.images);
     //Fetch and set any tasks the user had previously set
     const response2 = await axios.get("/api/dashboard/taskFetch");
@@ -56,7 +56,7 @@ export default function Dashboard() {
         //Tasks array will be updated in database...
           await axios.post("/api/dashboard/taskAdd", {
             task,
-            email: process.env.NEXT_PUBLIC_LOGGED_IN_USER,
+            email: process.env.LOGGED_IN_USER,
           })
         //...and the new task will be reflected on the client side as well
         setTasks((tasks) => [...tasks, task]);
@@ -74,7 +74,7 @@ export default function Dashboard() {
   //It takes an input of task
   async function deleteToDo(task: any) {
     //Updates the user's tasks array to reflect the deleted task...
-    await axios.post("/api/dashboard/taskDelete", { task, email: process.env.NEXT_PUBLIC_LOGGED_IN_USER })
+    await axios.post("/api/dashboard/taskDelete", { task, email: process.env.LOGGED_IN_USER })
     //...as well as update the client side to show this change
     setTasks(tasks => tasks.filter(validTask => validTask !== task))
   }
@@ -88,20 +88,18 @@ export default function Dashboard() {
   return (
     <>
       <div className="px-10">
-        {/*Page yitle*/}
+        {/*Page title*/}
         <div className="pt-[1.5vh] pb-[1.5vh]">
           <h1 className="font-bold text-2xl">Dashboard</h1>
         </div>
-        {/*Image carousel*/}
         <div className="grid grid-cols-3 gap-4 relative w-full max-w-full items-start">
+          {/*Image carousel*/}
           <div className="col-span-2 ">
             <Carousel className="w-full h-full">
               <CarouselContent className="h-full">
                 {/*This maps each random image to its own card*/}
                 {Array.from({ length: 3 }).map((_, index) => {
                   const image = carouselImages[index];
-                  console.log(image)
-                  console.log(image.hobby)
                   return (
                     <CarouselItem key={index} className="h-full">
                       <div className="h-full">
@@ -187,7 +185,7 @@ export default function Dashboard() {
                 <div className="pb-[1vh]">
                   <Button
                     className="rounded-full w-3/5 justify-stretch"
-                    onClick={() => router.push("/dashboard/dressup")}
+                    onClick={() => router.push("/dressup")}
                   >
                     <User></User>
                     Mascot
@@ -239,7 +237,7 @@ export default function Dashboard() {
           {/*Display user's customized mascot*/}
           {/*Will go to mascot editor on click*/}
           <div>
-            <Link href="/dashboard/dressup">
+            <Link href="/dressup">
               <Card className="h-[45vh]">
                 <CardContent>
                   <div className="h-[45vh] relative">
