@@ -5,14 +5,15 @@ let minutes = 25;
 let seconds = 0;
 let isPaused = true;
 let enteredTime: number | null = null;
-
+//Start counting down the timer every second
 function startTimer() {
     if(enteredTime != null){
         isPaused = false;
         timer = setInterval(updateTimer, 1000);
     }
 }
-
+//Display the right time 
+//or end the timer and show a message
 function updateTimer() {
     const timerElement =
         document.getElementById('timer');
@@ -30,11 +31,12 @@ function updateTimer() {
     timerElement!.textContent = 
         formatTime(minutes, seconds);
 }
-
+//Make a string of the minutes and seconds remaining on the timer
 function formatTime(minutes: number, seconds: number) {
     return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 }
-
+//Set the timer to have some number of minutes
+//and reset the pause button text to "pause"
 function startNewTimer(mins: number){
     enteredTime = mins;
     minutes = enteredTime;
@@ -49,7 +51,7 @@ function startNewTimer(mins: number){
         document.getElementById("pauseButton");
     pauseResumeButton!.textContent = 'Pause';
 }
-
+//Pause/resume the timer and toggle the text on the pause button
 function togglePauseResume() {
     const pauseResumeButton =
         document.getElementById("pauseButton");
@@ -63,7 +65,8 @@ function togglePauseResume() {
         pauseResumeButton!.textContent = 'Pause';
     }
 }
-
+//Reset the timer to the most recently chosen length
+//and reset the pause button text to "pause"
 function restartTimer() {
     clearInterval(timer!);
     minutes = enteredTime!;
@@ -77,25 +80,16 @@ function restartTimer() {
         document.getElementById("pauseButton");
     pauseResumeButton!.textContent = 'Pause';
 }
-
+//Accept user input for a new positive timer length in minutes 
+//If it's a positive number, set the timer to that number of minutes
+//Otherwise, give an error message with the restrictions
 function chooseTime() {
     const newTime = prompt('Enter new time in minutes:');
-    if (!isNaN(newTime) && newTime > 0) {
-        enteredTime = parseInt(newTime);
-        minutes = enteredTime;
-        seconds = 0;
-        isPaused = true;
-        const timerElement =
-            document.getElementById('timer');
-        timerElement!.textContent! =
-            formatTime(minutes, seconds);
-        clearInterval(timer!);
-        const pauseResumeButton =
-            document.getElementById("pauseButton");
-        pauseResumeButton!.textContent = 'Pause';
+    if (newTime != null && !isNaN(parseInt(newTime)) && parseInt(newTime) > 0) {
+        startNewTimer(parseInt(newTime));
     } else {
         alert('Invalid input. Please enter'+
-              ' a valid number greater than 0.');
+              ' a whole number greater than 0.');
     }
 }
 
