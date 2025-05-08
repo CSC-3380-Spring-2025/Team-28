@@ -1,5 +1,5 @@
 "use client"
-//find user w/ an API, fetch their hobbies and path, put said information into here
+//Find user w/ an API, fetch their hobbies and path, put said information into here
 import * as React from "react"
 import {
   House,
@@ -19,7 +19,7 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar"
 import { useEffect, useState } from "react"
-import axios, { AxiosResponse } from "axios"
+import axios from "axios"
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const [name, setName] = useState('')
@@ -49,8 +49,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const data = {
     user: {
       name: "Welcome, " + name,
-      email: process.env.NEXT_PUBLIC_LOGGED_IN_USER!,
-      avatar: "/avatars/shadcn.jpg",
+      email: process.env.LOGGED_IN_USER!,
+      avatar: "#",
     },
     navMain: [
       {
@@ -103,25 +103,30 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           },
           {
             title: "Collections",
-            url: pages3[0],
+            url: pages3[1],
           },
           {
             title: "Supplies",
-            url: pages3[0],
+            url: pages3[2],
           },
         ],
       },
     ],
     navFooter: [
       {
-        title: "Dashboard",
-        url: "/dashboard",
-        icon: House
-      },
-      {
-        title: "Settings",
-        url: "/dashboard/settings",
-        icon: Settings
+        title: "Quick Access",
+        url: "#",
+        icon: House,
+        items: [
+          {
+            title: "Dashboard",
+            url: "/dashboard"
+          },
+          {
+            title: "Settings",
+            url: "/dashboard/settings"
+          }
+        ]
       }
     ]
   }
