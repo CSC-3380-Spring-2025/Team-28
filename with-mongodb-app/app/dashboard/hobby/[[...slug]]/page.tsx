@@ -212,59 +212,12 @@ export default function HobbyPage() {
       //...so the main Blog tracker page will be shown
       else {
         return (
-<<<<<<< HEAD
-          <>
-            <div className="px-10 max-w-full">
-              <div className="grid grid-cols-2">
-                <div className="pt-[1.5vh] pb-[1.5vh] col-span-1 place-self-start">
-                  <h1 className="font-bold text-black text-2xl">Blog</h1>
-                </div>
-                <div className="pt-[1.5vh] pb-[1.5vh] col-span-1 place-self-end">
-                  <button
-                    type="button"
-                    className="p-[1.5vh] bg-black text-white rounded-md font-bold mr-[1.5vh]"
-                    onClick={() =>
-                      router.push(
-                        `/dashboard/hobby/${hobby}/${tracker}?url=add`
-                      )
-                    }
-                  >
-                    Add Post
-                  </button>
-                </div>
-              </div>
-              <div>
-                <div className="grid grid-cols-4">
-                  {blogContents.map((content, index) => (
-                    <div
-                      key={blogIDs[index].toString()}
-                      onClick={() => individualBlogPostReroute(blogIDs[index].toString())}
-                      className="col-span-1 w-[15vw] h-[20vh] border-2 border-black rounded-md mt-[5vh] mb-[5vh] mr-[5vw]"
-                    >
-                      <div className="flex justify-center justify-items-center">
-                        <p className="font-semibold text-center">
-                          {blogTitles[index]}
-                        </p>
-                      </div>
-                      <div className="flex justify-center justify-items-center">
-                        <p className="font-normal text-center text-black truncate">
-                          {content}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </>
-=======
           <Blog
             hobby={hobby}
             blogContents={blogContents}
             blogTitles={blogTitles}
             blogIDs={blogIDs}
           ></Blog>
->>>>>>> e01b411e5476be555a24c21829bbd61d2679c02d
         );
       }
     } 
