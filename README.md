@@ -17,12 +17,13 @@ to remind users weekly.
 ## Platforms Tested on
 - MacOS
 - Windows
+
 # Important Links
-Kanban Board: [https://github.com/CSC-3380-Spring-2025/Team-28/issues] \
-Designs: 
+1) Kanban Board: [https://github.com/CSC-3380-Spring-2025/Team-28/issues] \
+2) Designs: 
 - MacBook Air Designs: [https://www.figma.com/proto/rHYLfUW2ZP1fctNyf5og8n/team-28---%E2%89%A7%E2%96%BD%E2%89%A6--?node-id=472-3&p=f&t=FxjdTcYn0CpN99cH-1&scaling=scale-down&content-scaling=fixed&page-id=472%3A2]
 - Standard Desktop Designs: [https://www.figma.com/proto/rHYLfUW2ZP1fctNyf5og8n/team-28---%E2%89%A7%E2%96%BD%E2%89%A6--?node-id=472-1130&p=f&t=oMW40sXMmeIhhgp1-1&scaling=contain&content-scaling=fixed&page-id=472%3A1129] \
-Styles Guide(s): [https://drive.google.com/file/d/1ABqHBj43B3vap2-06WOuVx5YNlzSm1pI/view?usp=sharing] \
+3) Styles Guide(s): [https://drive.google.com/file/d/1ABqHBj43B3vap2-06WOuVx5YNlzSm1pI/view?usp=sharing] \
 
 # How to Run Dev and Test Environment
 
@@ -32,11 +33,10 @@ Styles Guide(s): [https://drive.google.com/file/d/1ABqHBj43B3vap2-06WOuVx5YNlzSm
 - npm (v 10.9.2)
 - pnpm (v 10.8.1)
 ### Downloading Dependencies
-[VS Code Download](https://code.visualstudio.com/Download)
-[Node.js Download)(https://nodejs.org/en/download)
-npm is already bundled with Node.js
-[pnpm Download](https://pnpm.io/installation)
-Instructions to install pnpm are already provided in the commands section, but this is the installation documentation for additional downloading help if needed.
+- [VS Code Download](https://code.visualstudio.com/Download)
+- [Node.js Download](https://nodejs.org/en/download)
+- npm is already bundled with Node.js
+- [pnpm Download](https://pnpm.io/installation) Instructions to install pnpm are already provided in the commands section, but this is the installation documentation for additional downloading help if needed.
 
 ## Commands
 First, download Node.js via the given link. Npm should be bundled with it. Make sure you have VS Code downloaded and open the terminal inside VS Code. 
