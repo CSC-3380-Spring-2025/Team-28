@@ -1,10 +1,10 @@
 # [Hobby Tracker] : [Team 28]
 # Members
-Project Manager: [Nora Pray] ([ny0o0om])\
-Communications Lead: [Khalil El-abbassi] ([KhalilE792])\
-Git Master: [Joshua Harris] ([Joshua4978])\
-Design Lead: [Helena Schuler] ([hschuler13])\
-Quality Assurance Tester: [Lynn Casper] ([Tcasperv])\
+Project Manager: [Nora Pray] (ny0o0om)
+Communications Lead: [Khalil El-abbassi] (KhalilE792)
+Git Master: [Joshua Harris] (Joshua4978)
+Design Lead: [Helena Schuler] (hschuler13)
+Quality Assurance Tester: [Lynn Casper] (Tcasperv)
 
 # About Our Software
 
@@ -19,11 +19,11 @@ to remind users weekly.
 - Windows
 
 # Important Links
-1) Kanban Board: [https://github.com/CSC-3380-Spring-2025/Team-28/issues] \
+1) Kanban Board: [https://github.com/CSC-3380-Spring-2025/Team-28/issues] 
 2) Designs: 
 - MacBook Air Designs: [https://www.figma.com/proto/rHYLfUW2ZP1fctNyf5og8n/team-28---%E2%89%A7%E2%96%BD%E2%89%A6--?node-id=472-3&p=f&t=FxjdTcYn0CpN99cH-1&scaling=scale-down&content-scaling=fixed&page-id=472%3A2]
-- Standard Desktop Designs: [https://www.figma.com/proto/rHYLfUW2ZP1fctNyf5og8n/team-28---%E2%89%A7%E2%96%BD%E2%89%A6--?node-id=472-1130&p=f&t=oMW40sXMmeIhhgp1-1&scaling=contain&content-scaling=fixed&page-id=472%3A1129] \
-3) Styles Guide(s): [https://drive.google.com/file/d/1ABqHBj43B3vap2-06WOuVx5YNlzSm1pI/view?usp=sharing] \
+- Standard Desktop Designs: [https://www.figma.com/proto/rHYLfUW2ZP1fctNyf5og8n/team-28---%E2%89%A7%E2%96%BD%E2%89%A6--?node-id=472-1130&p=f&t=oMW40sXMmeIhhgp1-1&scaling=contain&content-scaling=fixed&page-id=472%3A1129] 
+3) Styles Guide(s): [https://drive.google.com/file/d/1ABqHBj43B3vap2-06WOuVx5YNlzSm1pI/view?usp=sharing] 
 
 # How to Run Dev and Test Environment
 
